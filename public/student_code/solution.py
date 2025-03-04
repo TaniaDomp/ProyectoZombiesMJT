@@ -71,30 +71,55 @@ class EvacuationPolicy:
     
     def _policy_1(self, city: CityGraph, max_resources: int) -> PolicyResult:
         """
-        Política 1: Estrategia básica sin uso de proxies.
-        Solo utiliza información básica de nodos y aristas para tomar decisiones.
-        
-        Esta política debe:
-        - NO utilizar los proxies
-        - Solo usar información básica del grafo (nodos, aristas, pesos)
-        - Implementar una estrategia válida para cualquier ciudad
+        Política 1 Mejorada: Estrategia básica con selección inteligente del nodo de extracción
+        y asignación de recursos basada en la longitud de la ruta.
+        Si no se puede llegar a ningún nodo de extracción, no se asignan recursos.
         """
-        # TODO: Implementa tu solución aquí
-        target = city.extraction_nodes[0]
-        
-        try:
-            path = nx.shortest_path(city.graph, city.starting_node, target, 
-                                  weight='weight')
-        except nx.NetworkXNoPath:
-            path = [city.starting_node]
-            
-        resources = {
-            'explosives': max_resources // 3,
-            'ammo': max_resources // 3,
-            'radiation_suits': max_resources // 3
+        # Paso 1: Encontrar el nodo de extracción más cercano
+        shortest_path_length = float('inf')  # Inicializar con un valor grande
+        best_target = None
+        best_path = None
+
+        for target in city.extraction_nodes:
+            try:
+                path = nx.shortest_path(city.graph, city.starting_node, target, weight='weight')
+                path_length = nx.shortest_path_length(city.graph, city.starting_node, target, weight='weight')
+                
+                # Seleccionar el nodo de extracción con la ruta más corta
+                if path_length < shortest_path_length:
+                    shortest_path_length = path_length
+                    best_target = target
+                    best_path = path
+            except nx.NetworkXNoPath:
+                continue  # Si no hay camino, ignorar este nodo de extracción
+
+        # Paso 2: Verificar si se encontró un camino válido
+        if best_path is None:
+            # Si no hay camino a ningún nodo de extracción, no asignar recursos
+            return PolicyResult(path=[city.starting_node], resources={
+                'explosives': 0,
+                'ammo': 0,
+                'radiation_suits': 0
+            })
+
+        # Paso 3: Asignar recursos de manera más inteligente
+        # - Más "radiation_suits" si la ruta es larga
+        # - Más "explosives" si hay muchos obstáculos (aquí asumimos que no tenemos datos de obstáculos)
+        # - Más "ammo" si la ruta es peligrosa (aquí asumimos que no tenemos datos de peligro)
+        if shortest_path_length > 10:  # Si la ruta es larga
+            resources = {
+                'explosives': max_resources // 4,
+                'ammo': max_resources // 4,
+                'radiation_suits': max_resources // 2
+            }
+        else:  # Si la ruta es corta
+            resources = {
+                'explosives': max_resources // 3,
+                'ammo': max_resources // 3,
+                'radiation_suits': max_resources // 3
         }
-        
-        return PolicyResult(path, resources)
+        return PolicyResult(best_path, resources)
+    
     
     def _policy_2(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
