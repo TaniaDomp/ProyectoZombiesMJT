@@ -58,7 +58,7 @@ class EvacuationPolicy:
         # print(f'Max Resources: {max_resources} \n \n')
         
         
-        self.policy_type = "policy_1" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
+        self.policy_type = "policy_2" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
         
         if self.policy_type == "policy_1":
             return self._policy_1(city, max_resources)
@@ -120,37 +120,91 @@ class EvacuationPolicy:
         }
         return PolicyResult(best_path, resources)
     
-    
     def _policy_2(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
-        Política 2: Estrategia usando proxies y sus descripciones.
-        Utiliza la información de los proxies basándose en sus descripciones documentadas.
-        
-        Esta política debe:
-        - Utilizar los proxies según sus descripciones en docs/05_guia_proxy.md
-        - NO utilizar datos de simulaciones
-        - Implementar decisiones basadas en la interpretación de los rangos documentados
+        Política 2 Mejorada: Estrategia usando proxies y sus descripciones.
+        Combina con la Política 1 si no se encuentra una ruta válida.
         """
-        # TODO: Implementa tu solución aquí
+        # Convertir los datos de nodos y aristas en DataFrames
         proxy_data_nodes_df = convert_node_data_to_df(proxy_data.node_data)
         proxy_data_edges_df = convert_edge_data_to_df(proxy_data.edge_data)
         
-        #print(f'\n Node Data: \n {proxy_data_nodes_df}')
-        #print(f'\n Edge Data: \n {proxy_data_edges_df}')
+        # Verificar si las columnas 'node1' y 'node2' están presentes
+        if 'node1' not in proxy_data_edges_df.columns or 'node2' not in proxy_data_edges_df.columns:
+            # Si no están, generarlas a partir de las claves del diccionario
+            edges = list(proxy_data.edge_data.keys())
+            proxy_data_edges_df['node1'] = [edge[0] for edge in edges]
+            proxy_data_edges_df['node2'] = [edge[1] for edge in edges]
         
-        target = city.extraction_nodes[0]
+        # Definir umbrales de seguridad más relajados para nodos
+        unsafe_nodes = proxy_data_nodes_df[
+            (proxy_data_nodes_df['seismic_activity'] > 0.8) |  # Actividad sísmica muy alta
+            (proxy_data_nodes_df['radiation_readings'] > 0.7) |  # Radiación muy alta
+            (proxy_data_nodes_df['population_density'] > 0.8) |  # Densidad poblacional muy alta
+            (proxy_data_nodes_df['structural_integrity'] < 0.2)  # Integridad estructural muy baja
+        ].index.tolist()
         
+        # Definir rutas peligrosas con umbrales más relajados
+        unsafe_edges = proxy_data_edges_df[
+            (proxy_data_edges_df['structural_damage'] > 0.8) |  # Daño estructural muy alto
+            (proxy_data_edges_df['debris_density'] > 0.8) |  # Densidad de escombros muy alta
+            (proxy_data_edges_df['signal_interference'] > 0.9)  # Interferencia de señal muy alta
+        ][['node1', 'node2']].values.tolist()
+        
+        # Crear un grafo seguro sin nodos inseguros ni rutas peligrosas
+        safe_graph = city.graph.copy()
+        safe_graph.remove_nodes_from(unsafe_nodes)
+        safe_graph.remove_edges_from(unsafe_edges)
+        
+        # Verificar si el nodo de inicio está en el grafo seguro
+        if city.starting_node not in safe_graph:
+            # Si no está, recurrir a la Política 1
+            return self._policy_1(city, max_resources)
+        
+        # Definir objetivo (supervivientes con buena conectividad)
+        possible_targets = proxy_data_nodes_df[
+            (proxy_data_nodes_df['emergency_calls'] > 0.5) &  # Llamadas de emergencia moderadas
+            (proxy_data_nodes_df['thermal_readings'].between(0.2, 0.8)) &  # Lecturas térmicas moderadas
+            (proxy_data_nodes_df['signal_strength'] > 0.4)  # Fuerza de señal moderada
+        ].index.tolist()
+        
+        # Seleccionar el objetivo más cercano en el grafo seguro
+        target = None
+        shortest_path_length = float('inf')
+        for possible_target in possible_targets:
+            if possible_target in safe_graph:
+                try:
+                    path_length = nx.shortest_path_length(safe_graph, city.starting_node, possible_target, weight='weight')
+                    if path_length < shortest_path_length:
+                        shortest_path_length = path_length
+                        target = possible_target
+                except nx.NetworkXNoPath:
+                    continue
+        
+        # Si no hay objetivos válidos, recurrir a la Política 1
+        if target is None:
+            return self._policy_1(city, max_resources)
+        
+        # Buscar camino seguro
         try:
-            path = nx.shortest_path(city.graph, city.starting_node, target, 
-                                  weight='weight')
+            path = nx.shortest_path(safe_graph, city.starting_node, target, weight='weight')
         except nx.NetworkXNoPath:
-            path = [city.starting_node]
-            
-        resources = {
-            'explosives': max_resources // 3,
-            'ammo': max_resources // 3,
-            'radiation_suits': max_resources // 3
-        }
+            # Si no hay camino, recurrir a la Política 1
+            return self._policy_1(city, max_resources)
+        
+        # Distribución de recursos basada en la longitud de la ruta
+        if shortest_path_length > 10:  # Si la ruta es larga
+            resources = {
+                'explosives': max_resources // 4,
+                'ammo': max_resources // 4,
+                'radiation_suits': max_resources // 2
+            }
+        else:  # Si la ruta es corta
+            resources = {
+                'explosives': max_resources // 3,
+                'ammo': max_resources // 3,
+                'radiation_suits': max_resources // 3
+            }
         
         return PolicyResult(path, resources)
     
