@@ -98,34 +98,125 @@ class EvacuationPolicy:
     
     def _policy_2(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
-        Política 2: Estrategia usando proxies y sus descripciones.
-        Utiliza la información de los proxies basándose en sus descripciones documentadas.
+        Política 2: Estrategia usando proxies y sus descripciones documentadas.
         
-        Esta política debe:
-        - Utilizar los proxies según sus descripciones en docs/05_guia_proxy.md
-        - NO utilizar datos de simulaciones
-        - Implementar decisiones basadas en la interpretación de los rangos documentados
+        Objetivo: Incorporar información ambiental en decisiones de evacuación
+        basándose en los indicadores de sensores y conocimiento experto.
         """
-        # TODO: Implementa tu solución aquí
+        # Convertir datos de proxies a DataFrames para análisis más fácil
         proxy_data_nodes_df = convert_node_data_to_df(proxy_data.node_data)
         proxy_data_edges_df = convert_edge_data_to_df(proxy_data.edge_data)
         
-        #print(f'\n Node Data: \n {proxy_data_nodes_df}')
-        #print(f'\n Edge Data: \n {proxy_data_edges_df}')
-        
-        target = city.extraction_nodes[0]
-        
-        try:
-            path = nx.shortest_path(city.graph, city.starting_node, target, 
-                                  weight='weight')
-        except nx.NetworkXNoPath:
-            path = [city.starting_node]
+        # Encontrar el punto de extracción más seguro basado en múltiples indicadores
+        def evaluate_extraction_node(node):
+            node_data = proxy_data.node_data.get(node, {})
             
-        resources = {
-            'explosives': max_resources // 3,
-            'ammo': max_resources // 3,
-            'radiation_suits': max_resources // 3
-        }
+            # Evaluar riesgos y condiciones del nodo
+            seismic_risk = node_data.get('seismic_activity', 0)
+            radiation_level = node_data.get('radiation_readings', 0)
+            structural_health = node_data.get('structural_integrity', 0)
+            population_density = node_data.get('population_density', 0)
+            emergency_signals = node_data.get('emergency_calls', 0)
+            
+            # Calcular un puntaje de seguridad
+            # Menor es mejor - queremos minimizar riesgos
+            safety_score = (
+                seismic_risk + 
+                radiation_level + 
+                (1 - structural_health) + 
+                population_density
+            )
+            
+            return safety_score
+        
+        # Seleccionar el punto de extracción más seguro
+        extraction_nodes = city.extraction_nodes
+        safest_extraction = min(extraction_nodes, key=evaluate_extraction_node)
+        
+        # Encontrar ruta considerando condiciones de los bordes
+        def path_risk_assessment(path):
+            total_risk = 0
+            for i in range(len(path) - 1):
+                edge = (path[i], path[i+1])
+                edge_data = proxy_data.edge_data.get(edge, {})
+                
+                # Evaluar riesgos del borde
+                structural_damage = edge_data.get('structural_damage', 0)
+                debris_density = edge_data.get('debris_density', 0)
+                movement_sightings = edge_data.get('movement_sightings', 0)
+                signal_interference = edge_data.get('signal_interference', 0)
+                
+                # Calcular riesgo del borde
+                edge_risk = (
+                    structural_damage + 
+                    debris_density + 
+                    movement_sightings + 
+                    signal_interference
+                )
+                total_risk += edge_risk
+            
+            return total_risk
+        
+        # Encontrar ruta con el menor riesgo
+        try:
+            # Intentar primero el camino más corto
+            initial_path = nx.shortest_path(city.graph, city.starting_node, safest_extraction, weight='weight')
+            
+            # Si hay múltiples rutas posibles, encontrar la menos riesgosa
+            alternative_paths = list(nx.all_simple_paths(city.graph, city.starting_node, safest_extraction))
+            path = min(alternative_paths, key=path_risk_assessment)
+        except nx.NetworkXNoPath:
+            # Último recurso si no hay ruta
+            path = [city.starting_node]
+        
+        # Asignación inteligente de recursos
+        def calculate_resource_needs():
+            # Analizar necesidades de recursos basado en indicadores
+            resource_needs = {
+                'explosives': 0,
+                'ammo': 0,
+                'radiation_suits': 0
+            }
+            
+            # Explosivos basados en daño estructural
+            explosive_need = sum(
+                proxy_data.edge_data.get((path[i], path[i+1]), {}).get('structural_damage', 0) 
+                for i in range(len(path) - 1)
+            )
+            resource_needs['explosives'] = min(
+                int(explosive_need * max_resources * 0.4), 
+                max_resources // 3
+            )
+            
+            # Trajes de radiación basados en niveles de radiación
+            radiation_risk = max(
+                proxy_data.node_data.get(node, {}).get('radiation_readings', 0) 
+                for node in path
+            )
+            resource_needs['radiation_suits'] = min(
+                int(radiation_risk * max_resources * 0.4), 
+                max_resources // 3
+            )
+            
+            # Municiones basadas en movimientos detectados
+            movement_risk = sum(
+                proxy_data.edge_data.get((path[i], path[i+1]), {}).get('movement_sightings', 0) 
+                for i in range(len(path) - 1)
+            )
+            resource_needs['ammo'] = min(
+                int(movement_risk * max_resources * 0.4), 
+                max_resources // 3
+            )
+            
+            # Ajustar para no exceder recursos totales
+            total_assigned = sum(resource_needs.values())
+            if total_assigned > max_resources:
+                scale_factor = max_resources / total_assigned
+                resource_needs = {k: int(v * scale_factor) for k, v in resource_needs.items()}
+            
+            return resource_needs
+        
+        resources = calculate_resource_needs()
         
         return PolicyResult(path, resources)
     
