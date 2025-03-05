@@ -1,0 +1,77 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-04T16:09:41.081910",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            3,
+            10,
+            3,
+            10,
+            40
+        ],
+        "resources_allocated": {
+            "explosives": 0,
+            "ammo": 2,
+            "radiation_suits": 0
+        }
+    },
+    "outcome": {
+        "success": false,
+        "time_taken": 118.9044578326423,
+        "path_length": 70.60919063944282,
+        "resources": {
+            "initial": {
+                "explosives": 0,
+                "ammo": 2,
+                "radiation_suits": 0
+            },
+            "remaining": {
+                "explosives": 0,
+                "ammo": 0,
+                "radiation_suits": 0
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 3"
+            ],
+            [
+                1,
+                "Arrived at node 3"
+            ],
+            [
+                1,
+                "High radiation detected (level: 0.65)"
+            ],
+            [
+                5,
+                "FAILED - Path does not reach extraction point ended at node 40"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "ammo": {
+                "allocated": 2,
+                "used": 2,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "radiation_suits": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 1,
+                "effective_uses": 0
+            }
+        }
+    }
+}

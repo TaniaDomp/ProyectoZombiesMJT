@@ -1,0 +1,85 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-04T16:09:42.827321",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            9,
+            30,
+            33,
+            34,
+            30
+        ],
+        "resources_allocated": {
+            "explosives": 0,
+            "ammo": 3,
+            "radiation_suits": 5
+        }
+    },
+    "outcome": {
+        "success": false,
+        "time_taken": 84.07866409951275,
+        "path_length": 40.3435320494267,
+        "resources": {
+            "initial": {
+                "explosives": 0,
+                "ammo": 3,
+                "radiation_suits": 5
+            },
+            "remaining": {
+                "explosives": 0,
+                "ammo": 3,
+                "radiation_suits": 4
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 9"
+            ],
+            [
+                1,
+                "Arrived at node 9"
+            ],
+            [
+                1,
+                "High radiation detected (level: 0.65)"
+            ],
+            [
+                1,
+                "Used radiation suit successfully"
+            ],
+            [
+                1,
+                "Path blocked to node 33 (blockage detected)"
+            ],
+            [
+                1,
+                "TEAM DIED - Ran out of explosives"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 1,
+                "effective_uses": 0
+            },
+            "ammo": {
+                "allocated": 3,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "radiation_suits": {
+                "allocated": 5,
+                "used": 1,
+                "needed": 1,
+                "effective_uses": 1
+            }
+        }
+    }
+}

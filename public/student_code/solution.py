@@ -1,5 +1,7 @@
 import networkx as nx
 from typing import Dict, List, Literal
+import pandas as pd
+import random
 
 from public.lib.interfaces import CityGraph, ProxyData, PolicyResult
 from public.student_code.convert_to_df import convert_edge_data_to_df, convert_node_data_to_df
@@ -58,7 +60,7 @@ class EvacuationPolicy:
         # print(f'Max Resources: {max_resources} \n \n')
         
         
-        self.policy_type = "policy_2" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
+        self.policy_type = "policy_3" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
         
         if self.policy_type == "policy_1":
             return self._policy_1(city, max_resources)
@@ -224,31 +226,69 @@ class EvacuationPolicy:
         """
         Política 3: Estrategia usando datos de simulaciones previas.
         Utiliza estadísticas básicas de simulaciones anteriores para mejorar la toma de decisiones.
-        
-        Esta política debe:
-        - Utilizar datos de simulaciones previas
-        - Implementar mejoras basadas en estadísticas básicas
-        - NO usar modelos de machine learning
+
+        - Usa datos de simulaciones previas para elegir mejores rutas.
+        - Evita caminos que han fallado en el pasado.
+        - Distribuye los recursos basándose en estadísticas.
+        - NO usa modelos de machine learning.
         """
-        # TODO: Implementa tu solución aquí
-        # Aquí deberías cargar y analizar datos de simulaciones previas
         
-        target = city.extraction_nodes[0]
-        
+        # Supongamos que existe una estructura `self.simulation_history` con datos previos
+        # Cada entrada podría ser: {'path': [...], 'success': True/False, 'resources_used': {...}}
+
+        if hasattr(self, 'simulation_history') and self.simulation_history:
+            # Contar el número de veces que un nodo estuvo en una misión exitosa
+            node_success_count = {}
+            for sim in self.simulation_history:
+                if sim['success']:
+                    for node in sim['path']:
+                        node_success_count[node] = node_success_count.get(node, 0) + 1
+
+            # Ordenar nodos de extracción por frecuencia de éxito
+            sorted_targets = sorted(city.extraction_nodes, key=lambda x: node_success_count.get(x, 0), reverse=True)
+        else:
+            # Si no hay datos previos, elegir la primera opción
+            sorted_targets = city.extraction_nodes
+
+        # Intentar encontrar la mejor ruta hacia el nodo más exitoso
+        target = sorted_targets[0] if sorted_targets else city.starting_node
+
         try:
-            path = nx.shortest_path(city.graph, city.starting_node, target, 
-                                  weight='weight')
+            path = nx.shortest_path(city.graph, city.starting_node, target, weight='weight')
         except nx.NetworkXNoPath:
             path = [city.starting_node]
-            
-        resources = {
-            'explosives': max_resources // 3,
-            'ammo': max_resources // 3,
-            'radiation_suits': max_resources // 3
-        }
-        
+
+        # Distribuir recursos según estadísticas previas
+        if hasattr(self, 'simulation_history') and self.simulation_history:
+            avg_explosives = sum(sim['resources_used'].get('explosives', 0) for sim in self.simulation_history) / len(self.simulation_history)
+            avg_ammo = sum(sim['resources_used'].get('ammo', 0) for sim in self.simulation_history) / len(self.simulation_history)
+            avg_suits = sum(sim['resources_used'].get('radiation_suits', 0) for sim in self.simulation_history) / len(self.simulation_history)
+
+            # Ajustar recursos según el uso promedio anterior
+            total_avg = avg_explosives + avg_ammo + avg_suits
+            if total_avg > 0:
+                resources = {
+                    'explosives': int((avg_explosives / total_avg) * max_resources),
+                    'ammo': int((avg_ammo / total_avg) * max_resources),
+                    'radiation_suits': int((avg_suits / total_avg) * max_resources)
+                }
+            else:
+                # Distribución estándar si no hay datos previos
+                resources = {
+                    'explosives': max_resources // 3,
+                    'ammo': max_resources // 3,
+                    'radiation_suits': max_resources // 3
+                }
+        else:
+            # Distribución estándar si no hay datos previos
+            resources = {
+                'explosives': max_resources // 3,
+                'ammo': max_resources // 3,
+                'radiation_suits': max_resources // 3
+            }
+
         return PolicyResult(path, resources)
-    
+
     def _policy_4(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
         Política 4: Estrategia personalizada.
@@ -280,6 +320,3 @@ class EvacuationPolicy:
         }
         
         return PolicyResult(path, resources)
-    
-    
-    
