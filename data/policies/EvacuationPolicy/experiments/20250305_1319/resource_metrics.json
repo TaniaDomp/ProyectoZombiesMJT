@@ -1,0 +1,628 @@
+{
+    "overall": {
+        "explosives": {
+            "avg_allocated": 2.89,
+            "avg_used": 1.66,
+            "avg_needed": 0.64,
+            "efficiency": 0.3625
+        },
+        "ammo": {
+            "avg_allocated": 2.89,
+            "avg_used": 2.25,
+            "avg_needed": 1.6,
+            "efficiency": 0.6826666666666666
+        },
+        "radiation_suits": {
+            "avg_allocated": 3.2,
+            "avg_used": 2.64,
+            "avg_needed": 1.69,
+            "efficiency": 0.6192500000000001
+        }
+    },
+    "by_city_size": {
+        "25": {
+            "explosives": {
+                "avg_allocated": 3.25,
+                "avg_used": 0.0,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            },
+            "ammo": {
+                "avg_allocated": 3.25,
+                "avg_used": 1.25,
+                "avg_needed": 1.25,
+                "efficiency": 0.75
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.25,
+                "avg_used": 1.75,
+                "avg_needed": 2.0,
+                "efficiency": 1.0
+            }
+        },
+        "47": {
+            "explosives": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.25,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            },
+            "ammo": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.75,
+                "avg_needed": 0.75,
+                "efficiency": 0.5833333333333333
+            },
+            "radiation_suits": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.75,
+                "avg_needed": 0.75,
+                "efficiency": 0.375
+            }
+        },
+        "29": {
+            "explosives": {
+                "avg_allocated": 1.6666666666666667,
+                "avg_used": 1.1666666666666667,
+                "avg_needed": 0.16666666666666666,
+                "efficiency": 0.16666666666666666
+            },
+            "ammo": {
+                "avg_allocated": 1.6666666666666667,
+                "avg_used": 1.3333333333333333,
+                "avg_needed": 0.6666666666666666,
+                "efficiency": 0.2222222222222222
+            },
+            "radiation_suits": {
+                "avg_allocated": 1.6666666666666667,
+                "avg_used": 1.5,
+                "avg_needed": 1.0,
+                "efficiency": 0.3888888888888889
+            }
+        },
+        "23": {
+            "explosives": {
+                "avg_allocated": 3.0,
+                "avg_used": 2.0,
+                "avg_needed": 1.5,
+                "efficiency": 0.8333333333333334
+            },
+            "ammo": {
+                "avg_allocated": 3.0,
+                "avg_used": 3.0,
+                "avg_needed": 2.8333333333333335,
+                "efficiency": 0.8333333333333334
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.0,
+                "avg_used": 2.0,
+                "avg_needed": 1.6666666666666667,
+                "efficiency": 0.7222222222222223
+            }
+        },
+        "36": {
+            "explosives": {
+                "avg_allocated": 3.4,
+                "avg_used": 1.8,
+                "avg_needed": 1.2,
+                "efficiency": 0.6
+            },
+            "ammo": {
+                "avg_allocated": 3.4,
+                "avg_used": 3.0,
+                "avg_needed": 3.0,
+                "efficiency": 0.9333333333333333
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.4,
+                "avg_used": 2.8,
+                "avg_needed": 2.4,
+                "efficiency": 0.8
+            }
+        },
+        "46": {
+            "explosives": {
+                "avg_allocated": 3.0,
+                "avg_used": 1.5,
+                "avg_needed": 1.0,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 3.0,
+                "avg_used": 2.5,
+                "avg_needed": 3.0,
+                "efficiency": 1.0
+            },
+            "radiation_suits": {
+                "avg_allocated": 4.0,
+                "avg_used": 4.0,
+                "avg_needed": 2.5,
+                "efficiency": 0.5
+            }
+        },
+        "33": {
+            "explosives": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.25,
+                "avg_needed": 0.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.5,
+                "avg_needed": 0.75,
+                "efficiency": 0.75
+            },
+            "radiation_suits": {
+                "avg_allocated": 2.5,
+                "avg_used": 2.5,
+                "avg_needed": 2.0,
+                "efficiency": 0.75
+            }
+        },
+        "48": {
+            "explosives": {
+                "avg_allocated": 3.6666666666666665,
+                "avg_used": 2.0,
+                "avg_needed": 2.3333333333333335,
+                "efficiency": 1.0
+            },
+            "ammo": {
+                "avg_allocated": 3.6666666666666665,
+                "avg_used": 2.3333333333333335,
+                "avg_needed": 2.3333333333333335,
+                "efficiency": 1.0
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.6666666666666665,
+                "avg_used": 1.0,
+                "avg_needed": 1.0,
+                "efficiency": 0.3333333333333333
+            }
+        },
+        "34": {
+            "explosives": {
+                "avg_allocated": 2.8,
+                "avg_used": 1.4,
+                "avg_needed": 0.2,
+                "efficiency": 0.2
+            },
+            "ammo": {
+                "avg_allocated": 2.8,
+                "avg_used": 1.8,
+                "avg_needed": 0.8,
+                "efficiency": 0.45
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.4,
+                "avg_used": 3.2,
+                "avg_needed": 2.2,
+                "efficiency": 0.77
+            }
+        },
+        "24": {
+            "explosives": {
+                "avg_allocated": 4.0,
+                "avg_used": 0.5,
+                "avg_needed": 0.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 4.0,
+                "avg_used": 2.0,
+                "avg_needed": 2.0,
+                "efficiency": 1.0
+            },
+            "radiation_suits": {
+                "avg_allocated": 4.0,
+                "avg_used": 2.5,
+                "avg_needed": 2.5,
+                "efficiency": 1.0
+            }
+        },
+        "41": {
+            "explosives": {
+                "avg_allocated": 3.142857142857143,
+                "avg_used": 2.5714285714285716,
+                "avg_needed": 0.42857142857142855,
+                "efficiency": 0.2857142857142857
+            },
+            "ammo": {
+                "avg_allocated": 3.142857142857143,
+                "avg_used": 3.0,
+                "avg_needed": 1.7142857142857142,
+                "efficiency": 0.5999999999999999
+            },
+            "radiation_suits": {
+                "avg_allocated": 4.0,
+                "avg_used": 4.0,
+                "avg_needed": 1.7142857142857142,
+                "efficiency": 0.43809523809523804
+            }
+        },
+        "50": {
+            "explosives": {
+                "avg_allocated": 3.4285714285714284,
+                "avg_used": 2.142857142857143,
+                "avg_needed": 0.2857142857142857,
+                "efficiency": 0.2857142857142857
+            },
+            "ammo": {
+                "avg_allocated": 3.4285714285714284,
+                "avg_used": 2.857142857142857,
+                "avg_needed": 1.5714285714285714,
+                "efficiency": 0.6428571428571429
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.7142857142857144,
+                "avg_used": 3.142857142857143,
+                "avg_needed": 1.4285714285714286,
+                "efficiency": 0.4642857142857143
+            }
+        },
+        "38": {
+            "explosives": {
+                "avg_allocated": 3.5,
+                "avg_used": 2.5,
+                "avg_needed": 0.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 3.5,
+                "avg_used": 3.0,
+                "avg_needed": 1.5,
+                "efficiency": 0.625
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.5,
+                "avg_used": 3.5,
+                "avg_needed": 1.5,
+                "efficiency": 0.5
+            }
+        },
+        "42": {
+            "explosives": {
+                "avg_allocated": 2.6666666666666665,
+                "avg_used": 2.6666666666666665,
+                "avg_needed": 2.0,
+                "efficiency": 0.6666666666666666
+            },
+            "ammo": {
+                "avg_allocated": 2.6666666666666665,
+                "avg_used": 2.6666666666666665,
+                "avg_needed": 2.0,
+                "efficiency": 0.7777777777777777
+            },
+            "radiation_suits": {
+                "avg_allocated": 2.6666666666666665,
+                "avg_used": 2.0,
+                "avg_needed": 1.6666666666666667,
+                "efficiency": 0.4444444444444444
+            }
+        },
+        "26": {
+            "explosives": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.0,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            },
+            "ammo": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.5,
+                "avg_needed": 1.0,
+                "efficiency": 0.75
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.5,
+                "avg_used": 3.0,
+                "avg_needed": 1.0,
+                "efficiency": 0.5
+            }
+        },
+        "49": {
+            "explosives": {
+                "avg_allocated": 3.0,
+                "avg_used": 3.0,
+                "avg_needed": 1.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 3.0,
+                "avg_used": 3.0,
+                "avg_needed": 2.0,
+                "efficiency": 0.5
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.0,
+                "avg_used": 3.0,
+                "avg_needed": 1.5,
+                "efficiency": 0.5
+            }
+        },
+        "22": {
+            "explosives": {
+                "avg_allocated": 1.0,
+                "avg_used": 0.5,
+                "avg_needed": 0.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 1.0,
+                "avg_used": 0.5,
+                "avg_needed": 0.5,
+                "efficiency": 0.5
+            },
+            "radiation_suits": {
+                "avg_allocated": 1.0,
+                "avg_used": 1.0,
+                "avg_needed": 2.0,
+                "efficiency": 1.0
+            }
+        },
+        "28": {
+            "explosives": {
+                "avg_allocated": 3.3333333333333335,
+                "avg_used": 1.3333333333333333,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            },
+            "ammo": {
+                "avg_allocated": 3.3333333333333335,
+                "avg_used": 2.6666666666666665,
+                "avg_needed": 1.6666666666666667,
+                "efficiency": 0.75
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.3333333333333335,
+                "avg_used": 2.6666666666666665,
+                "avg_needed": 1.6666666666666667,
+                "efficiency": 0.75
+            }
+        },
+        "37": {
+            "explosives": {
+                "avg_allocated": 2.8,
+                "avg_used": 2.4,
+                "avg_needed": 0.8,
+                "efficiency": 0.25
+            },
+            "ammo": {
+                "avg_allocated": 2.8,
+                "avg_used": 2.6,
+                "avg_needed": 2.2,
+                "efficiency": 0.7
+            },
+            "radiation_suits": {
+                "avg_allocated": 4.0,
+                "avg_used": 3.8,
+                "avg_needed": 1.8,
+                "efficiency": 0.5583333333333333
+            }
+        },
+        "44": {
+            "explosives": {
+                "avg_allocated": 2.0,
+                "avg_used": 2.0,
+                "avg_needed": 1.0,
+                "efficiency": 0.3333333333333333
+            },
+            "ammo": {
+                "avg_allocated": 2.0,
+                "avg_used": 1.3333333333333333,
+                "avg_needed": 0.6666666666666666,
+                "efficiency": 0.6666666666666666
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.6666666666666665,
+                "avg_used": 3.6666666666666665,
+                "avg_needed": 2.6666666666666665,
+                "efficiency": 0.6888888888888888
+            }
+        },
+        "45": {
+            "explosives": {
+                "avg_allocated": 4.0,
+                "avg_used": 3.3333333333333335,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            },
+            "ammo": {
+                "avg_allocated": 4.0,
+                "avg_used": 3.6666666666666665,
+                "avg_needed": 1.0,
+                "efficiency": 0.4666666666666666
+            },
+            "radiation_suits": {
+                "avg_allocated": 4.0,
+                "avg_used": 4.0,
+                "avg_needed": 1.0,
+                "efficiency": 0.3333333333333333
+            }
+        },
+        "35": {
+            "explosives": {
+                "avg_allocated": 2.0,
+                "avg_used": 2.0,
+                "avg_needed": 1.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 2.0,
+                "avg_used": 2.0,
+                "avg_needed": 1.0,
+                "efficiency": 0.5
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.5,
+                "avg_used": 3.5,
+                "avg_needed": 2.0,
+                "efficiency": 0.7
+            }
+        },
+        "21": {
+            "explosives": {
+                "avg_allocated": 2.5,
+                "avg_used": 0.75,
+                "avg_needed": 0.25,
+                "efficiency": 0.25
+            },
+            "ammo": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.75,
+                "avg_needed": 1.75,
+                "efficiency": 0.875
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.0,
+                "avg_used": 2.5,
+                "avg_needed": 2.25,
+                "efficiency": 0.875
+            }
+        },
+        "32": {
+            "explosives": {
+                "avg_allocated": 3.0,
+                "avg_used": 0.5,
+                "avg_needed": 0.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 3.0,
+                "avg_used": 1.5,
+                "avg_needed": 1.5,
+                "efficiency": 0.5
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.0,
+                "avg_used": 2.0,
+                "avg_needed": 2.0,
+                "efficiency": 1.0
+            }
+        },
+        "30": {
+            "explosives": {
+                "avg_allocated": 2.5,
+                "avg_used": 1.5,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            },
+            "ammo": {
+                "avg_allocated": 2.5,
+                "avg_used": 2.5,
+                "avg_needed": 1.0,
+                "efficiency": 0.5
+            },
+            "radiation_suits": {
+                "avg_allocated": 2.5,
+                "avg_used": 2.5,
+                "avg_needed": 1.0,
+                "efficiency": 0.5
+            }
+        },
+        "43": {
+            "explosives": {
+                "avg_allocated": 4.0,
+                "avg_used": 3.5,
+                "avg_needed": 1.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 4.0,
+                "avg_used": 4.0,
+                "avg_needed": 3.0,
+                "efficiency": 0.625
+            },
+            "radiation_suits": {
+                "avg_allocated": 4.0,
+                "avg_used": 3.5,
+                "avg_needed": 2.0,
+                "efficiency": 0.625
+            }
+        },
+        "39": {
+            "explosives": {
+                "avg_allocated": 3.0,
+                "avg_used": 1.0,
+                "avg_needed": 1.0,
+                "efficiency": 1.0
+            },
+            "ammo": {
+                "avg_allocated": 3.0,
+                "avg_used": 1.0,
+                "avg_needed": 1.0,
+                "efficiency": 1.0
+            },
+            "radiation_suits": {
+                "avg_allocated": 3.0,
+                "avg_used": 0.0,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            }
+        },
+        "31": {
+            "explosives": {
+                "avg_allocated": 2.75,
+                "avg_used": 1.0,
+                "avg_needed": 0.5,
+                "efficiency": 0.5
+            },
+            "ammo": {
+                "avg_allocated": 2.75,
+                "avg_used": 2.0,
+                "avg_needed": 1.5,
+                "efficiency": 0.75
+            },
+            "radiation_suits": {
+                "avg_allocated": 2.75,
+                "avg_used": 1.75,
+                "avg_needed": 1.25,
+                "efficiency": 0.5
+            }
+        },
+        "27": {
+            "explosives": {
+                "avg_allocated": 4.0,
+                "avg_used": 0.0,
+                "avg_needed": 0.0,
+                "efficiency": 0.0
+            },
+            "ammo": {
+                "avg_allocated": 4.0,
+                "avg_used": 1.5,
+                "avg_needed": 1.5,
+                "efficiency": 1.0
+            },
+            "radiation_suits": {
+                "avg_allocated": 4.0,
+                "avg_used": 2.5,
+                "avg_needed": 2.5,
+                "efficiency": 1.0
+            }
+        },
+        "20": {
+            "explosives": {
+                "avg_allocated": 1.0,
+                "avg_used": 1.0,
+                "avg_needed": 1.0,
+                "efficiency": 1.0
+            },
+            "ammo": {
+                "avg_allocated": 1.0,
+                "avg_used": 1.0,
+                "avg_needed": 2.0,
+                "efficiency": 1.0
+            },
+            "radiation_suits": {
+                "avg_allocated": 1.0,
+                "avg_used": 1.0,
+                "avg_needed": 1.0,
+                "efficiency": 1.0
+            }
+        }
+    },
+    "analysis": {
+        "most_used_resource": "radiation_suits",
+        "most_needed_resource": "radiation_suits"
+    }
+}

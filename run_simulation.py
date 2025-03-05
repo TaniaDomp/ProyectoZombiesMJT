@@ -21,7 +21,6 @@ def main():
     
     # Create student's policy
     policy = EvacuationPolicy()
-    policy.set_policy("policy_3")
     
     # Run simulation
     result, city, proxy_data = sim.run_simulation(policy)

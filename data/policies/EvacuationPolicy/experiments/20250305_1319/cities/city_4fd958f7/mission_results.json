@@ -1,0 +1,107 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-05T13:19:19.308993",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            32,
+            2,
+            15
+        ],
+        "resources_allocated": {
+            "explosives": 2,
+            "ammo": 2,
+            "radiation_suits": 5
+        }
+    },
+    "outcome": {
+        "success": false,
+        "time_taken": 84.0408960425435,
+        "path_length": 31.141831044916028,
+        "resources": {
+            "initial": {
+                "explosives": 2,
+                "ammo": 2,
+                "radiation_suits": 5
+            },
+            "remaining": {
+                "explosives": 0,
+                "ammo": 0,
+                "radiation_suits": 0
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 32"
+            ],
+            [
+                1,
+                "Arrived at node 32"
+            ],
+            [
+                1,
+                "High radiation detected (level: 0.65)"
+            ],
+            [
+                1,
+                "Used radiation suit successfully"
+            ],
+            [
+                1,
+                "Moving to node 15"
+            ],
+            [
+                2,
+                "Arrived at node 2"
+            ],
+            [
+                2,
+                "High radiation detected (level: 0.65)"
+            ],
+            [
+                2,
+                "Used radiation suit successfully"
+            ],
+            [
+                3,
+                "Arrived at node 15"
+            ],
+            [
+                3,
+                "High radiation detected (level: 0.35)"
+            ],
+            [
+                3,
+                "Used radiation suit successfully"
+            ],
+            [
+                3,
+                "FAILED - Path does not reach extraction point ended at node 15"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 2,
+                "used": 2,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "ammo": {
+                "allocated": 2,
+                "used": 2,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "radiation_suits": {
+                "allocated": 5,
+                "used": 5,
+                "needed": 3,
+                "effective_uses": 3
+            }
+        }
+    }
+}

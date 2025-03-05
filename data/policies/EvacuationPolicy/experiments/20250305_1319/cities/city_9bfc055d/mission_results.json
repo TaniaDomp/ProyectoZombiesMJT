@@ -1,0 +1,82 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-05T13:19:19.843915",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            29,
+            15
+        ],
+        "resources_allocated": {
+            "explosives": 3,
+            "ammo": 3,
+            "radiation_suits": 3
+        }
+    },
+    "outcome": {
+        "success": true,
+        "time_taken": 7.851241915147495,
+        "path_length": 4.746111189585866,
+        "resources": {
+            "initial": {
+                "explosives": 3,
+                "ammo": 3,
+                "radiation_suits": 3
+            },
+            "remaining": {
+                "explosives": 3,
+                "ammo": 2,
+                "radiation_suits": 3
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 29"
+            ],
+            [
+                1,
+                "Arrived at node 29"
+            ],
+            [
+                1,
+                "Zombie horde encountered (level: 0.58)"
+            ],
+            [
+                1,
+                "Used ammo successfully against zombies"
+            ],
+            [
+                2,
+                "Arrived at node 15"
+            ],
+            [
+                2,
+                "Successfully reached extraction point at node 15"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 3,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "ammo": {
+                "allocated": 3,
+                "used": 1,
+                "needed": 1,
+                "effective_uses": 1
+            },
+            "radiation_suits": {
+                "allocated": 3,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            }
+        }
+    }
+}

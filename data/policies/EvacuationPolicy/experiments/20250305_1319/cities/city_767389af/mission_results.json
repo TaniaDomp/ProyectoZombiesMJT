@@ -1,0 +1,108 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-05T13:19:19.643623",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            1,
+            5,
+            4,
+            7
+        ],
+        "resources_allocated": {
+            "explosives": 1,
+            "ammo": 1,
+            "radiation_suits": 1
+        }
+    },
+    "outcome": {
+        "success": false,
+        "time_taken": 252.55922890701302,
+        "path_length": 83.62249408883488,
+        "resources": {
+            "initial": {
+                "explosives": 1,
+                "ammo": 1,
+                "radiation_suits": 1
+            },
+            "remaining": {
+                "explosives": 0,
+                "ammo": 0,
+                "radiation_suits": 0
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 1"
+            ],
+            [
+                1,
+                "Arrived at node 1"
+            ],
+            [
+                1,
+                "Zombie horde encountered (level: 0.83)"
+            ],
+            [
+                1,
+                "Used ammo successfully against zombies"
+            ],
+            [
+                1,
+                "Path blocked to node 4 (blockage detected)"
+            ],
+            [
+                1,
+                "Used explosives successfully to clear path"
+            ],
+            [
+                1,
+                "Moving to node 4"
+            ],
+            [
+                2,
+                "Arrived at node 5"
+            ],
+            [
+                2,
+                "High radiation detected (level: 0.35)"
+            ],
+            [
+                2,
+                "Used radiation suit successfully"
+            ],
+            [
+                2,
+                "Zombie horde encountered (level: 0.59)"
+            ],
+            [
+                2,
+                "TEAM DIED - Ran out of ammo"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 1,
+                "used": 1,
+                "needed": 1,
+                "effective_uses": 1
+            },
+            "ammo": {
+                "allocated": 1,
+                "used": 1,
+                "needed": 2,
+                "effective_uses": 1
+            },
+            "radiation_suits": {
+                "allocated": 1,
+                "used": 1,
+                "needed": 1,
+                "effective_uses": 1
+            }
+        }
+    }
+}

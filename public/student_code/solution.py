@@ -58,7 +58,7 @@ class EvacuationPolicy:
         # print(f'Max Resources: {max_resources} \n \n')
         
         
-        self.policy_type = "policy_4" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
+        self.policy_type = "policy_2" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
         
         if self.policy_type == "policy_1":
             return self._policy_1(city, max_resources)
@@ -111,128 +111,93 @@ class EvacuationPolicy:
     
     def _policy_2(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
-        Política 2: Estrategia usando proxies y sus descripciones documentadas.
-        
-        Objetivo: Incorporar información ambiental en decisiones de evacuación
-        basándose en los indicadores de sensores y conocimiento experto.
+        Política 2 Mejorada: Estrategia usando proxies y sus descripciones.
+        Combina con la Política 1 si no se encuentra una ruta válida.
         """
-        # Convertir datos de proxies a DataFrames para análisis más fácil
+        # Convertir los datos de nodos y aristas en DataFrames
         proxy_data_nodes_df = convert_node_data_to_df(proxy_data.node_data)
         proxy_data_edges_df = convert_edge_data_to_df(proxy_data.edge_data)
         
-        # Encontrar el punto de extracción más seguro basado en múltiples indicadores
-        def evaluate_extraction_node(node):
-            node_data = proxy_data.node_data.get(node, {})
-            
-            # Evaluar riesgos y condiciones del nodo
-            seismic_risk = node_data.get('seismic_activity', 0)
-            radiation_level = node_data.get('radiation_readings', 0)
-            structural_health = node_data.get('structural_integrity', 0)
-            population_density = node_data.get('population_density', 0)
-            emergency_signals = node_data.get('emergency_calls', 0)
-            
-            # Calcular un puntaje de seguridad
-            # Menor es mejor - queremos minimizar riesgos
-            safety_score = (
-                seismic_risk + 
-                radiation_level + 
-                (1 - structural_health) + 
-                population_density
-            )
-            
-            return safety_score
+        # Verificar si las columnas 'node1' y 'node2' están presentes
+        if 'node1' not in proxy_data_edges_df.columns or 'node2' not in proxy_data_edges_df.columns:
+            # Si no están, generarlas a partir de las claves del diccionario
+            edges = list(proxy_data.edge_data.keys())
+            proxy_data_edges_df['node1'] = [edge[0] for edge in edges]
+            proxy_data_edges_df['node2'] = [edge[1] for edge in edges]
         
-        # Seleccionar el punto de extracción más seguro
-        extraction_nodes = city.extraction_nodes
-        safest_extraction = min(extraction_nodes, key=evaluate_extraction_node)
+        # Definir umbrales de seguridad más relajados para nodos
+        unsafe_nodes = proxy_data_nodes_df[
+            (proxy_data_nodes_df['seismic_activity'] > 0.8) |  # Actividad sísmica muy alta
+            (proxy_data_nodes_df['radiation_readings'] > 0.7) |  # Radiación muy alta
+            (proxy_data_nodes_df['population_density'] > 0.8) |  # Densidad poblacional muy alta
+            (proxy_data_nodes_df['structural_integrity'] < 0.2)  # Integridad estructural muy baja
+        ].index.tolist()
         
-        # Encontrar ruta considerando condiciones de los bordes
-        def path_risk_assessment(path):
-            total_risk = 0
-            for i in range(len(path) - 1):
-                edge = (path[i], path[i+1])
-                edge_data = proxy_data.edge_data.get(edge, {})
-                
-                # Evaluar riesgos del borde
-                structural_damage = edge_data.get('structural_damage', 0)
-                debris_density = edge_data.get('debris_density', 0)
-                movement_sightings = edge_data.get('movement_sightings', 0)
-                signal_interference = edge_data.get('signal_interference', 0)
-                
-                # Calcular riesgo del borde
-                edge_risk = (
-                    structural_damage + 
-                    debris_density + 
-                    movement_sightings + 
-                    signal_interference
-                )
-                total_risk += edge_risk
-            
-            return total_risk
+        # Definir rutas peligrosas con umbrales más relajados
+        unsafe_edges = proxy_data_edges_df[
+            (proxy_data_edges_df['structural_damage'] > 0.8) |  # Daño estructural muy alto
+            (proxy_data_edges_df['debris_density'] > 0.8) |  # Densidad de escombros muy alta
+            (proxy_data_edges_df['signal_interference'] > 0.9)  # Interferencia de señal muy alta
+        ][['node1', 'node2']].values.tolist()
         
-        # Encontrar ruta con el menor riesgo
+        # Crear un grafo seguro sin nodos inseguros ni rutas peligrosas
+        safe_graph = city.graph.copy()
+        safe_graph.remove_nodes_from(unsafe_nodes)
+        safe_graph.remove_edges_from(unsafe_edges)
+        
+        # Verificar si el nodo de inicio está en el grafo seguro
+        if city.starting_node not in safe_graph:
+            # Si no está, recurrir a la Política 1
+            return self._policy_1(city, max_resources)
+        
+        # Definir objetivo (supervivientes con buena conectividad)
+        possible_targets = proxy_data_nodes_df[
+            (proxy_data_nodes_df['emergency_calls'] > 0.5) &  # Llamadas de emergencia moderadas
+            (proxy_data_nodes_df['thermal_readings'].between(0.2, 0.8)) &  # Lecturas térmicas moderadas
+            (proxy_data_nodes_df['signal_strength'] > 0.4)  # Fuerza de señal moderada
+        ].index.tolist()
+        
+        # Seleccionar el objetivo más cercano en el grafo seguro
+        target = None
+        shortest_path_length = float('inf')
+        for possible_target in possible_targets:
+            if possible_target in safe_graph:
+                try:
+                    path_length = nx.shortest_path_length(safe_graph, city.starting_node, possible_target, weight='weight')
+                    if path_length < shortest_path_length:
+                        shortest_path_length = path_length
+                        target = possible_target
+                except nx.NetworkXNoPath:
+                    continue
+        
+        # Si no hay objetivos válidos, recurrir a la Política 1
+        if target is None:
+            return self._policy_1(city, max_resources)
+        
+        # Buscar camino seguro
         try:
-            # Intentar primero el camino más corto
-            initial_path = nx.shortest_path(city.graph, city.starting_node, safest_extraction, weight='weight')
-            
-            # Si hay múltiples rutas posibles, encontrar la menos riesgosa
-            alternative_paths = list(nx.all_simple_paths(city.graph, city.starting_node, safest_extraction))
-            path = min(alternative_paths, key=path_risk_assessment)
+            path = nx.shortest_path(safe_graph, city.starting_node, target, weight='weight')
         except nx.NetworkXNoPath:
-            # Último recurso si no hay ruta
-            path = [city.starting_node]
+            # Si no hay camino, recurrir a la Política 1
+            return self._policy_1(city, max_resources)
         
-        # Asignación inteligente de recursos
-        def calculate_resource_needs():
-            # Analizar necesidades de recursos basado en indicadores
-            resource_needs = {
-                'explosives': 0,
-                'ammo': 0,
-                'radiation_suits': 0
+        # Distribución de recursos basada en la longitud de la ruta
+        if shortest_path_length > 10:  # Si la ruta es larga
+            resources = {
+                'explosives': max_resources // 4,
+                'ammo': max_resources // 4,
+                'radiation_suits': max_resources // 2
             }
-            
-            # Explosivos basados en daño estructural
-            explosive_need = sum(
-                proxy_data.edge_data.get((path[i], path[i+1]), {}).get('structural_damage', 0) 
-                for i in range(len(path) - 1)
-            )
-            resource_needs['explosives'] = min(
-                int(explosive_need * max_resources * 0.4), 
-                max_resources // 3
-            )
-            
-            # Trajes de radiación basados en niveles de radiación
-            radiation_risk = max(
-                proxy_data.node_data.get(node, {}).get('radiation_readings', 0) 
-                for node in path
-            )
-            resource_needs['radiation_suits'] = min(
-                int(radiation_risk * max_resources * 0.4), 
-                max_resources // 3
-            )
-            
-            # Municiones basadas en movimientos detectados
-            movement_risk = sum(
-                proxy_data.edge_data.get((path[i], path[i+1]), {}).get('movement_sightings', 0) 
-                for i in range(len(path) - 1)
-            )
-            resource_needs['ammo'] = min(
-                int(movement_risk * max_resources * 0.4), 
-                max_resources // 3
-            )
-            
-            # Ajustar para no exceder recursos totales
-            total_assigned = sum(resource_needs.values())
-            if total_assigned > max_resources:
-                scale_factor = max_resources / total_assigned
-                resource_needs = {k: int(v * scale_factor) for k, v in resource_needs.items()}
-            
-            return resource_needs
-        
-        resources = calculate_resource_needs()
+        else:  # Si la ruta es corta
+            resources = {
+                'explosives': max_resources // 3,
+                'ammo': max_resources // 3,
+                'radiation_suits': max_resources // 3
+            }
         
         return PolicyResult(path, resources)
-    
+
+        
     def _policy_3(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
         Política 3: Estrategia usando datos de simulaciones previas.
