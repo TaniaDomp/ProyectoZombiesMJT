@@ -1,5 +1,7 @@
 import networkx as nx
 from typing import Dict, List, Literal
+import pandas as pd
+import random
 
 from public.lib.interfaces import CityGraph, ProxyData, PolicyResult
 from public.student_code.convert_to_df import convert_edge_data_to_df, convert_node_data_to_df
@@ -58,7 +60,7 @@ class EvacuationPolicy:
         # print(f'Max Resources: {max_resources} \n \n')
         
         
-        self.policy_type = "policy_2" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
+        self.policy_type = "policy_3" # TODO: Cambiar a "policy_2" para probar la política 2, y asi sucesivamente
         
         if self.policy_type == "policy_1":
             return self._policy_1(city, max_resources)
@@ -212,62 +214,148 @@ class EvacuationPolicy:
         """
         Política 3: Estrategia usando datos de simulaciones previas.
         Utiliza estadísticas básicas de simulaciones anteriores para mejorar la toma de decisiones.
-        
-        Esta política debe:
-        - Utilizar datos de simulaciones previas
-        - Implementar mejoras basadas en estadísticas básicas
-        - NO usar modelos de machine learning
+
+        - Usa datos de simulaciones previas para elegir mejores rutas.
+        - Evita caminos que han fallado en el pasado.
+        - Distribuye los recursos basándose en estadísticas.
+        - NO usa modelos de machine learning.
         """
-        # TODO: Implementa tu solución aquí
-        # Aquí deberías cargar y analizar datos de simulaciones previas
         
-        target = city.extraction_nodes[0]
-        
+        # Supongamos que existe una estructura `self.simulation_history` con datos previos
+        # Cada entrada podría ser: {'path': [...], 'success': True/False, 'resources_used': {...}}
+
+        if hasattr(self, 'simulation_history') and self.simulation_history:
+            # Contar el número de veces que un nodo estuvo en una misión exitosa
+            node_success_count = {}
+            for sim in self.simulation_history:
+                if sim['success']:
+                    for node in sim['path']:
+                        node_success_count[node] = node_success_count.get(node, 0) + 1
+
+            # Ordenar nodos de extracción por frecuencia de éxito
+            sorted_targets = sorted(city.extraction_nodes, key=lambda x: node_success_count.get(x, 0), reverse=True)
+        else:
+            # Si no hay datos previos, elegir la primera opción
+            sorted_targets = city.extraction_nodes
+
+        # Intentar encontrar la mejor ruta hacia el nodo más exitoso
+        target = sorted_targets[0] if sorted_targets else city.starting_node
+
         try:
-            path = nx.shortest_path(city.graph, city.starting_node, target, 
-                                  weight='weight')
+            path = nx.shortest_path(city.graph, city.starting_node, target, weight='weight')
         except nx.NetworkXNoPath:
             path = [city.starting_node]
-            
-        resources = {
-            'explosives': max_resources // 3,
-            'ammo': max_resources // 3,
-            'radiation_suits': max_resources // 3
-        }
-        
+
+        # Distribuir recursos según estadísticas previas
+        if hasattr(self, 'simulation_history') and self.simulation_history:
+            avg_explosives = sum(sim['resources_used'].get('explosives', 0) for sim in self.simulation_history) / len(self.simulation_history)
+            avg_ammo = sum(sim['resources_used'].get('ammo', 0) for sim in self.simulation_history) / len(self.simulation_history)
+            avg_suits = sum(sim['resources_used'].get('radiation_suits', 0) for sim in self.simulation_history) / len(self.simulation_history)
+
+            # Ajustar recursos según el uso promedio anterior
+            total_avg = avg_explosives + avg_ammo + avg_suits
+            if total_avg > 0:
+                resources = {
+                    'explosives': int((avg_explosives / total_avg) * max_resources),
+                    'ammo': int((avg_ammo / total_avg) * max_resources),
+                    'radiation_suits': int((avg_suits / total_avg) * max_resources)
+                }
+            else:
+                # Distribución estándar si no hay datos previos
+                resources = {
+                    'explosives': max_resources // 3,
+                    'ammo': max_resources // 3,
+                    'radiation_suits': max_resources // 3
+                }
+        else:
+            # Distribución estándar si no hay datos previos
+            resources = {
+                'explosives': max_resources // 3,
+                'ammo': max_resources // 3,
+                'radiation_suits': max_resources // 3
+            }
+
         return PolicyResult(path, resources)
-    
+
     def _policy_4(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
-        Política 4: Estrategia personalizada.
-        Implementa tu mejor estrategia usando cualquier recurso disponible.
-        
-        Esta política puede:
-        - Usar cualquier técnica o recurso que consideres apropiado
-        - Implementar estrategias avanzadas de tu elección
+        Política 4: Estrategia controlada de mitigación de riesgos con recursos ajustados.
         """
-        # TODO: Implementa tu solución aquí
         proxy_data_nodes_df = convert_node_data_to_df(proxy_data.node_data)
         proxy_data_edges_df = convert_edge_data_to_df(proxy_data.edge_data)
-        
-        #print(f'\n Node Data: \n {proxy_data_nodes_df}')
-        #print(f'\n Edge Data: \n {proxy_data_edges_df}')
-        
-        target = city.extraction_nodes[0]
-        
-        try:
-            path = nx.shortest_path(city.graph, city.starting_node, target, 
-                                  weight='weight')
-        except nx.NetworkXNoPath:
-            path = [city.starting_node]
+
+        # Verificar qué columnas existen en los datos de nodos
+        available_columns = proxy_data_nodes_df.columns
+
+        # Definir los umbrales para cada tipo de riesgo
+        max_seismic = 0.6
+        max_radiation = 0.7
+        max_movement = 0.8
+
+        # Crear un valor de "riesgo" ponderado para cada nodo
+        node_risks = {}
+        for node in proxy_data_nodes_df.index:
+            seismic_risk = proxy_data_nodes_df.loc[node, 'seismic_activity'] if 'seismic_activity' in available_columns else 0
+            radiation_risk = proxy_data_nodes_df.loc[node, 'radiation_readings'] if 'radiation_readings' in available_columns else 0
+            movement_risk = proxy_data_nodes_df.loc[node, 'movement_sightings'] if 'movement_sightings' in available_columns else 0
             
+            # El riesgo es la suma ponderada de estos factores (puedes ajustar los pesos)
+            total_risk = (seismic_risk * 0.3) + (radiation_risk * 0.4) + (movement_risk * 0.3)
+            node_risks[node] = min(total_risk, 1.0)  # Limitamos a 1.0 para evitar valores mayores
+
+        # Ordenar los nodos por su riesgo
+        sorted_risks = sorted(node_risks.items(), key=lambda x: x[1], reverse=True)
+
+        # Elegir un nodo de extracción con el menor riesgo posible entre los nodos más bajos
+        best_target = None
+        for node, risk in sorted_risks:
+            if risk < max_seismic and risk < max_radiation and risk < max_movement:
+                best_target = node
+                break
+
+        if best_target is None:
+            # Si todos los nodos tienen un riesgo alto, tomamos el nodo con el menor riesgo
+            best_target = sorted_risks[0][0]
+
+        print(f"Destino elegido: {best_target}")
+
+        # Crear un grafo seguro eliminando los nodos de alto riesgo
+        safe_graph = city.graph.copy()
+        high_risk_nodes = [node for node, risk in node_risks.items() if risk > 0.7]
+        safe_graph.remove_nodes_from(high_risk_nodes)
+
+        # Generar un camino aleatorio pero limitado a los nodos de riesgo bajo
+        path = [city.starting_node]
+        while len(path) < 5:
+            next_node = random.choice(list(safe_graph.neighbors(path[-1])))
+            if next_node not in path:  # Evitar nodos repetidos
+                path.append(next_node)
+
+        print(f"Camino seleccionado: {path}")
+
+        # Asignación de recursos
         resources = {
-            'explosives': max_resources // 3,
-            'ammo': max_resources // 3,
-            'radiation_suits': max_resources // 3
+            'explosives': random.randint(0, max_resources // 3),
+            'ammo': random.randint(0, max_resources // 3),
+            'radiation_suits': random.randint(0, max_resources // 3)
         }
+
+        # Asignación de más recursos a nodos con alto riesgo de radiación o sismos
+        for node, risk in sorted_risks:
+            if node in path:
+                if risk > max_radiation:
+                    resources['radiation_suits'] += 2  # Aumentar trajes de radiación
+                elif risk > max_seismic:
+                    resources['explosives'] += 2  # Aumentar explosivos en nodos de sismos
+
+        print(f"Recursos asignados: {resources}")
+
+        # Definir éxito basado en si la cantidad de recursos mitigó el riesgo
+        total_risk = sum(node_risks[node] for node in path)
+        resources_used = sum(resources.values())
         
+        success_rate = max(0, min(1, (resources_used / total_risk) if total_risk > 0 else 1))
+
+        # Resultado final
+        print(f"Tasa de éxito: {success_rate}")
         return PolicyResult(path, resources)
-    
-    
-    
