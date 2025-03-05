@@ -1,0 +1,77 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-05T09:20:08.118383",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            15,
+            14,
+            7,
+            29,
+            23
+        ],
+        "resources_allocated": {
+            "explosives": 0,
+            "ammo": 0,
+            "radiation_suits": 0
+        }
+    },
+    "outcome": {
+        "success": false,
+        "time_taken": 106.38305832531591,
+        "path_length": 64.75256027542831,
+        "resources": {
+            "initial": {
+                "explosives": 0,
+                "ammo": 0,
+                "radiation_suits": 0
+            },
+            "remaining": {
+                "explosives": 0,
+                "ammo": 0,
+                "radiation_suits": 0
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 15"
+            ],
+            [
+                1,
+                "Arrived at node 15"
+            ],
+            [
+                1,
+                "Path blocked to node 7 (blockage detected)"
+            ],
+            [
+                1,
+                "TEAM DIED - Ran out of explosives"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 1,
+                "effective_uses": 0
+            },
+            "ammo": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "radiation_suits": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            }
+        }
+    }
+}

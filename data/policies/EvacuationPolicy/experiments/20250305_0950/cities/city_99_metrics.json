@@ -1,0 +1,84 @@
+{
+    "metadata": {
+        "policy_name": "EvacuationPolicy",
+        "experiment_id": "20250305_0950",
+        "city_size": 47,
+        "run_id": 99
+    },
+    "performance": {
+        "success": false,
+        "time_taken": 988.0548218051135,
+        "path_length": 139.63309792597244
+    },
+    "resource_details": {
+        "explosives": {
+            "allocated": 5,
+            "used": 2,
+            "efficiency": 0.4
+        },
+        "ammo": {
+            "allocated": 5,
+            "used": 5,
+            "efficiency": 1.0
+        },
+        "radiation_suits": {
+            "allocated": 4,
+            "used": 4,
+            "efficiency": 1.0
+        }
+    },
+    "proxy_metrics": {
+        "nodes": {
+            "seismic_activity": {
+                "mean": 0.4201872243486143,
+                "std": 0.3083924921395329
+            },
+            "radiation_readings": {
+                "mean": 0.3716036302648325,
+                "std": 0.3155866515110028
+            },
+            "population_density": {
+                "mean": 0.2208263419292482,
+                "std": 0.21756407091019125
+            },
+            "emergency_calls": {
+                "mean": 0.7376997847008782,
+                "std": 0.2867236748955273
+            },
+            "thermal_readings": {
+                "mean": 0.37845296623177094,
+                "std": 0.2121707507949692
+            },
+            "signal_strength": {
+                "mean": 0.6150473644833299,
+                "std": 0.18420147749247018
+            },
+            "structural_integrity": {
+                "mean": 0.5856228300786658,
+                "std": 0.30463069041836943
+            }
+        },
+        "edges": {
+            "structural_damage": {
+                "mean": 0.49518933410290106,
+                "std": 0.36599419474664463
+            },
+            "signal_interference": {
+                "mean": 0.33459303763320536,
+                "std": 0.17721559965302552
+            },
+            "movement_sightings": {
+                "mean": 0.502100737587764,
+                "std": 0.24900284311904217
+            },
+            "debris_density": {
+                "mean": 0.48780295955667896,
+                "std": 0.2969086545080521
+            },
+            "hazard_gradient": {
+                "mean": 0.21920173540160928,
+                "std": 0.13979267562707864
+            }
+        }
+    }
+}

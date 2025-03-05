@@ -1,0 +1,894 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-05T09:52:04.669537"
+    },
+    "indicators": {
+        "nodes": {
+            "0": {
+                "seismic_activity": 0.5882244287020529,
+                "radiation_readings": 0.010878571405329912,
+                "population_density": 0.23025419455911061,
+                "emergency_calls": 0.5061599258719598,
+                "thermal_readings": 0.2708186159128382,
+                "signal_strength": 0.5778954688955312,
+                "structural_integrity": 0.4186657443174087
+            },
+            "1": {
+                "seismic_activity": 0.7499429038096436,
+                "radiation_readings": 0.08273266050542802,
+                "population_density": 0.2670523687697419,
+                "emergency_calls": 0.7357329957652596,
+                "thermal_readings": 0.5913404630125426,
+                "signal_strength": 0.42877555104912557,
+                "structural_integrity": 0.278899147647405
+            },
+            "2": {
+                "seismic_activity": 0.6770996841153287,
+                "radiation_readings": 0.0,
+                "population_density": 0.0,
+                "emergency_calls": 0.37573516953417396,
+                "thermal_readings": 0.27881290551797666,
+                "signal_strength": 0.537582365886372,
+                "structural_integrity": 0.3493803704973929
+            },
+            "3": {
+                "seismic_activity": 0.6532677710048905,
+                "radiation_readings": 0.23417008188637875,
+                "population_density": 0.20824033122562635,
+                "emergency_calls": 0.4593113074315175,
+                "thermal_readings": 0.3171171863662682,
+                "signal_strength": 0.48256794961651606,
+                "structural_integrity": 0.4238568545164707
+            },
+            "4": {
+                "seismic_activity": 0.8035108735565493,
+                "radiation_readings": 0.08057565078724752,
+                "population_density": 0.4255029637574772,
+                "emergency_calls": 0.8517426479397325,
+                "thermal_readings": 0.6569266657325821,
+                "signal_strength": 0.5354898397852014,
+                "structural_integrity": 0.20524667061068663
+            },
+            "5": {
+                "seismic_activity": 0.7464246732061318,
+                "radiation_readings": 0.0,
+                "population_density": 0.29174804142311994,
+                "emergency_calls": 0.5854977749759528,
+                "thermal_readings": 0.37350016255327334,
+                "signal_strength": 0.5826972412946517,
+                "structural_integrity": 0.27350945055660064
+            },
+            "6": {
+                "seismic_activity": 0.0821006894553076,
+                "radiation_readings": 0.7642182302376915,
+                "population_density": 0.19967578596723026,
+                "emergency_calls": 0.8501571368635259,
+                "thermal_readings": 0.5438027491448734,
+                "signal_strength": 0.7768175035988358,
+                "structural_integrity": 1.0
+            },
+            "7": {
+                "seismic_activity": 0.4066450419958071,
+                "radiation_readings": 0.5818487520482427,
+                "population_density": 0.1742999884965125,
+                "emergency_calls": 0.8528256943468023,
+                "thermal_readings": 0.3506471049142393,
+                "signal_strength": 0.6213362459320616,
+                "structural_integrity": 0.6915436885541496
+            },
+            "8": {
+                "seismic_activity": 0.23664161789879623,
+                "radiation_readings": 1.0,
+                "population_density": 0.1173149186691092,
+                "emergency_calls": 0.8773555926805877,
+                "thermal_readings": 0.2703575129168926,
+                "signal_strength": 0.4734392920335727,
+                "structural_integrity": 0.8117137780171435
+            },
+            "9": {
+                "seismic_activity": 0.2903914328731244,
+                "radiation_readings": 0.583925235188007,
+                "population_density": 0.06863353900016414,
+                "emergency_calls": 0.8294193960171625,
+                "thermal_readings": 0.30096618340973225,
+                "signal_strength": 0.510888518001581,
+                "structural_integrity": 0.7557927964188906
+            },
+            "10": {
+                "seismic_activity": 0.6955127108365573,
+                "radiation_readings": 0.10300098665521101,
+                "population_density": 0.16228836449220613,
+                "emergency_calls": 0.43290775720032865,
+                "thermal_readings": 0.231928030757242,
+                "signal_strength": 0.6480799014213805,
+                "structural_integrity": 0.34552459690014026
+            },
+            "11": {
+                "seismic_activity": 0.8615611954145345,
+                "radiation_readings": 0.08485661350301202,
+                "population_density": 0.3087842187041534,
+                "emergency_calls": 0.8078343819103561,
+                "thermal_readings": 0.428689788365948,
+                "signal_strength": 0.5070345365269235,
+                "structural_integrity": 0.027681947930913428
+            },
+            "12": {
+                "seismic_activity": 0.6074253064008599,
+                "radiation_readings": 0.0,
+                "population_density": 0.10726752222225586,
+                "emergency_calls": 0.8789697229638795,
+                "thermal_readings": 0.41000096462278013,
+                "signal_strength": 0.5881460882757825,
+                "structural_integrity": 0.2973811492463708
+            },
+            "13": {
+                "seismic_activity": 0.2715602598497271,
+                "radiation_readings": 0.8989661441477695,
+                "population_density": 0.050798546551948466,
+                "emergency_calls": 0.8453875193334967,
+                "thermal_readings": 0.18207237677347812,
+                "signal_strength": 0.6409876781376557,
+                "structural_integrity": 0.843138606734005
+            },
+            "14": {
+                "seismic_activity": 0.8499742060555643,
+                "radiation_readings": 0.07846704890022363,
+                "population_density": 0.5326059241233628,
+                "emergency_calls": 0.7821865203005922,
+                "thermal_readings": 0.6061786677960832,
+                "signal_strength": 0.546591852845532,
+                "structural_integrity": 0.3079637735546584
+            },
+            "15": {
+                "seismic_activity": 0.40903301103043077,
+                "radiation_readings": 0.0,
+                "population_density": 0.0,
+                "emergency_calls": 0.4214698644789292,
+                "thermal_readings": 0.2474076364039641,
+                "signal_strength": 0.7834226956882907,
+                "structural_integrity": 0.5110563956996136
+            },
+            "16": {
+                "seismic_activity": 0.13528531304678268,
+                "radiation_readings": 0.7188682563669211,
+                "population_density": 0.007663932631530937,
+                "emergency_calls": 0.8744021727039085,
+                "thermal_readings": 0.1501914141437144,
+                "signal_strength": 0.56437954033887,
+                "structural_integrity": 0.9172455502828571
+            },
+            "17": {
+                "seismic_activity": 0.7015669512924871,
+                "radiation_readings": 0.0,
+                "population_density": 0.0,
+                "emergency_calls": 0.4355875301466242,
+                "thermal_readings": 0.17002410917376864,
+                "signal_strength": 0.5684927088984971,
+                "structural_integrity": 0.3190651218309247
+            },
+            "18": {
+                "seismic_activity": 0.41770789300015504,
+                "radiation_readings": 0.049254791012511456,
+                "population_density": 0.013466416851563566,
+                "emergency_calls": 0.5819278980583391,
+                "thermal_readings": 0.08469944473285491,
+                "signal_strength": 0.6826792692192662,
+                "structural_integrity": 0.553894709008995
+            },
+            "19": {
+                "seismic_activity": 0.08622833074671393,
+                "radiation_readings": 0.6002138477046671,
+                "population_density": 0.2493030406914091,
+                "emergency_calls": 0.963576623060476,
+                "thermal_readings": 0.23566856432405942,
+                "signal_strength": 0.6718206699035361,
+                "structural_integrity": 0.7639086108387173
+            },
+            "20": {
+                "seismic_activity": 0.29870610420293114,
+                "radiation_readings": 0.06396672756261965,
+                "population_density": 0.0,
+                "emergency_calls": 0.30227208166374075,
+                "thermal_readings": 0.19646203468429674,
+                "signal_strength": 0.7774622968705892,
+                "structural_integrity": 0.6284800817312637
+            },
+            "21": {
+                "seismic_activity": 0.47021508695557424,
+                "radiation_readings": 0.5688472284792495,
+                "population_density": 0.16641097419962808,
+                "emergency_calls": 0.963280978937897,
+                "thermal_readings": 0.3775071667817109,
+                "signal_strength": 0.4065579567938123,
+                "structural_integrity": 0.5835257361480242
+            },
+            "22": {
+                "seismic_activity": 0.7607893633887645,
+                "radiation_readings": 0.0,
+                "population_density": 0.02219783288283672,
+                "emergency_calls": 0.8511881551333498,
+                "thermal_readings": 0.19474404833788822,
+                "signal_strength": 0.6817408120436119,
+                "structural_integrity": 0.3192844416753048
+            },
+            "23": {
+                "seismic_activity": 0.14847189615731773,
+                "radiation_readings": 0.14465023758353665,
+                "population_density": 0.5350303582148849,
+                "emergency_calls": 0.8980122991293348,
+                "thermal_readings": 0.7109036570436722,
+                "signal_strength": 0.7159128552962719,
+                "structural_integrity": 0.8424952155363687
+            },
+            "24": {
+                "seismic_activity": 0.604349112489748,
+                "radiation_readings": 0.09157977326335118,
+                "population_density": 0.4807525869345596,
+                "emergency_calls": 0.7865338477143886,
+                "thermal_readings": 0.6190840121333487,
+                "signal_strength": 0.6100423637376533,
+                "structural_integrity": 0.4050206291133852
+            },
+            "25": {
+                "seismic_activity": 0.5579534034142255,
+                "radiation_readings": 0.4461929781295676,
+                "population_density": 0.12508348133190045,
+                "emergency_calls": 0.8386920614910978,
+                "thermal_readings": 0.2182685241675576,
+                "signal_strength": 0.5426056812232748,
+                "structural_integrity": 0.39029038871506344
+            },
+            "26": {
+                "seismic_activity": 0.665670983725404,
+                "radiation_readings": 0.0,
+                "population_density": 0.18416583784146193,
+                "emergency_calls": 0.8806302415334674,
+                "thermal_readings": 0.3355772744119744,
+                "signal_strength": 0.45111755939906706,
+                "structural_integrity": 0.3139265900891704
+            },
+            "27": {
+                "seismic_activity": 0.40374181942142034,
+                "radiation_readings": 0.03960341597825265,
+                "population_density": 0.12642622415691415,
+                "emergency_calls": 0.7656436025258726,
+                "thermal_readings": 0.30611256622164823,
+                "signal_strength": 0.6492926002235597,
+                "structural_integrity": 0.6260964120684912
+            },
+            "28": {
+                "seismic_activity": 0.6969370376008176,
+                "radiation_readings": 0.09862004861956958,
+                "population_density": 0.5100249471113226,
+                "emergency_calls": 0.7566051882724447,
+                "thermal_readings": 0.6443059140822591,
+                "signal_strength": 0.4262464822695717,
+                "structural_integrity": 0.2530360646418394
+            },
+            "29": {
+                "seismic_activity": 0.4332921084017259,
+                "radiation_readings": 0.9563715369566941,
+                "population_density": 0.04027847665111946,
+                "emergency_calls": 0.920763665588927,
+                "thermal_readings": 0.22397400569579862,
+                "signal_strength": 0.5962637506123722,
+                "structural_integrity": 0.7716169088113217
+            },
+            "30": {
+                "seismic_activity": 0.6471847068307255,
+                "radiation_readings": 0.6097846059851832,
+                "population_density": 0.0,
+                "emergency_calls": 0.8667848575932607,
+                "thermal_readings": 0.26380060707189257,
+                "signal_strength": 0.4754248615148067,
+                "structural_integrity": 0.3082714139958506
+            },
+            "31": {
+                "seismic_activity": 0.6015022485704216,
+                "radiation_readings": 0.0,
+                "population_density": 0.06647645839157243,
+                "emergency_calls": 0.31903075384675783,
+                "thermal_readings": 0.2445350989946245,
+                "signal_strength": 0.5892707771455118,
+                "structural_integrity": 0.31926332260203616
+            },
+            "32": {
+                "seismic_activity": 0.6655704391121271,
+                "radiation_readings": 0.38721644889712203,
+                "population_density": 0.0664301102037081,
+                "emergency_calls": 0.9888045517412609,
+                "thermal_readings": 0.23842168911035755,
+                "signal_strength": 0.6230020281052426,
+                "structural_integrity": 0.479830488350849
+            },
+            "33": {
+                "seismic_activity": 0.5335836678416618,
+                "radiation_readings": 0.5804591232853317,
+                "population_density": 0.10563229860993795,
+                "emergency_calls": 0.9045162615559589,
+                "thermal_readings": 0.05610799065293724,
+                "signal_strength": 0.5040599524094027,
+                "structural_integrity": 0.6195944168986732
+            },
+            "34": {
+                "seismic_activity": 0.000532025542024403,
+                "radiation_readings": 0.3764548182084423,
+                "population_density": 0.09508657847222902,
+                "emergency_calls": 0.9525874192389887,
+                "thermal_readings": 0.2898202484791631,
+                "signal_strength": 0.8788990493967237,
+                "structural_integrity": 1.0
+            },
+            "35": {
+                "seismic_activity": 0.7614740197576717,
+                "radiation_readings": 0.0,
+                "population_density": 0.0,
+                "emergency_calls": 0.43684376234568967,
+                "thermal_readings": 0.24895257768949144,
+                "signal_strength": 0.4559904828062616,
+                "structural_integrity": 0.14062465012464784
+            },
+            "36": {
+                "seismic_activity": 0.4476099734631393,
+                "radiation_readings": 0.26772881928096925,
+                "population_density": 0.39304933296319083,
+                "emergency_calls": 0.9180940072801227,
+                "thermal_readings": 0.35108012356157586,
+                "signal_strength": 0.6684864761457519,
+                "structural_integrity": 0.5999608128362611
+            },
+            "37": {
+                "seismic_activity": 0.940608023827127,
+                "radiation_readings": 0.011558368034464746,
+                "population_density": 0.23633039197193714,
+                "emergency_calls": 0.736962631308377,
+                "thermal_readings": 0.2863239420947697,
+                "signal_strength": 0.533585485009742,
+                "structural_integrity": 0.083484173566522
+            },
+            "38": {
+                "seismic_activity": 0.39280181115189716,
+                "radiation_readings": 0.6583946948812319,
+                "population_density": 0.08072832244286746,
+                "emergency_calls": 0.9955775645409608,
+                "thermal_readings": 0.2847947378893996,
+                "signal_strength": 0.4700457401288113,
+                "structural_integrity": 0.7571110081397695
+            }
+        },
+        "edges": {
+            "0_15": {
+                "structural_damage": 0.3248451426752929,
+                "signal_interference": 0.0,
+                "movement_sightings": 0.12870978062432192,
+                "debris_density": 0.4078923799917354,
+                "hazard_gradient": 0.2594244870439081
+            },
+            "0_5": {
+                "structural_damage": 0.5680249048217333,
+                "signal_interference": 0.2957529603216493,
+                "movement_sightings": 0.4450214809421154,
+                "debris_density": 0.41133151623706155,
+                "hazard_gradient": 0.0
+            },
+            "0_35": {
+                "structural_damage": 0.9344324164314157,
+                "signal_interference": 0.2249899943783351,
+                "movement_sightings": 0.24869194981946482,
+                "debris_density": 0.884113943040012,
+                "hazard_gradient": 0.2721143887153601
+            },
+            "1_28": {
+                "structural_damage": 0.3804970939966316,
+                "signal_interference": 0.05946717107048749,
+                "movement_sightings": 0.8035914267609451,
+                "debris_density": 0.40380575823839127,
+                "hazard_gradient": 0.15793499563380553
+            },
+            "1_4": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.19085845854884134,
+                "movement_sightings": 0.7189959730467781,
+                "debris_density": 0.7657861100156749,
+                "hazard_gradient": 0.168362814430806
+            },
+            "1_11": {
+                "structural_damage": 0.9413794264575461,
+                "signal_interference": 0.16198874183722067,
+                "movement_sightings": 0.8444392905990371,
+                "debris_density": 0.7889705231252581,
+                "hazard_gradient": 0.06918363061832747
+            },
+            "2_10": {
+                "structural_damage": 0.553768403399009,
+                "signal_interference": 0.2704585512827544,
+                "movement_sightings": 0.600610464249277,
+                "debris_density": 0.31176137558636363,
+                "hazard_gradient": 0.2372257238903686
+            },
+            "2_18": {
+                "structural_damage": 0.30718280443560103,
+                "signal_interference": 0.0,
+                "movement_sightings": 0.39997874456313887,
+                "debris_density": 0.43530232349572073,
+                "hazard_gradient": 0.026679353592626714
+            },
+            "2_17": {
+                "structural_damage": 0.9479744908188714,
+                "signal_interference": 0.1267538245957922,
+                "movement_sightings": 0.7207187594378142,
+                "debris_density": 0.912722264007032,
+                "hazard_gradient": 0.08167936146853641
+            },
+            "3_25": {
+                "structural_damage": 0.3075441755974469,
+                "signal_interference": 0.18482240998015897,
+                "movement_sightings": 0.649004200964894,
+                "debris_density": 0.5365841803323996,
+                "hazard_gradient": 0.1913256483277997
+            },
+            "3_37": {
+                "structural_damage": 0.6484412250129865,
+                "signal_interference": 0.3039790220721975,
+                "movement_sightings": 0.4891611950244623,
+                "debris_density": 0.32554635990052294,
+                "hazard_gradient": 0.08209997422128605
+            },
+            "3_32": {
+                "structural_damage": 0.9410938656232529,
+                "signal_interference": 0.5072403734779488,
+                "movement_sightings": 0.35875372019634416,
+                "debris_density": 0.864947297939168,
+                "hazard_gradient": 0.18374085046709482
+            },
+            "4_11": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.19956671999454945,
+                "movement_sightings": 0.6351008418737835,
+                "debris_density": 0.8943749512936664,
+                "hazard_gradient": 0.1849429147943657
+            },
+            "4_26": {
+                "structural_damage": 0.3303540747363759,
+                "signal_interference": 0.0437226763784849,
+                "movement_sightings": 0.6781509705933526,
+                "debris_density": 0.5641511475975141,
+                "hazard_gradient": 0.490945239170287
+            },
+            "4_28": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.21091270763504347,
+                "movement_sightings": 0.7980940843664748,
+                "debris_density": 0.7668343429488159,
+                "hazard_gradient": 0.16385746426582365
+            },
+            "5_31": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.18850927184692837,
+                "movement_sightings": 0.42428816248667933,
+                "debris_density": 0.7503526484786603,
+                "hazard_gradient": 0.16599981945562842
+            },
+            "5_27": {
+                "structural_damage": 0.3337337438585456,
+                "signal_interference": 0.0545547094464047,
+                "movement_sightings": 0.475706965822818,
+                "debris_density": 0.41027880806766337,
+                "hazard_gradient": 0.15868397625155492
+            },
+            "5_22": {
+                "structural_damage": 0.3997305601482067,
+                "signal_interference": 0.08001007495731802,
+                "movement_sightings": 0.4941460027888642,
+                "debris_density": 0.40575084933049144,
+                "hazard_gradient": 0.14682784162421275
+            },
+            "5_14": {
+                "structural_damage": 0.5982090941538943,
+                "signal_interference": 0.10855276144903939,
+                "movement_sightings": 0.5308353855546116,
+                "debris_density": 0.3942070742718704,
+                "hazard_gradient": 0.4136519167448763
+            },
+            "6_7": {
+                "structural_damage": 0.0,
+                "signal_interference": 0.3150555198053559,
+                "movement_sightings": 0.28751261578753207,
+                "debris_density": 0.12800329225190024,
+                "hazard_gradient": 0.0
+            },
+            "6_19": {
+                "structural_damage": 0.17301159567350188,
+                "signal_interference": 0.16251453753812506,
+                "movement_sightings": 0.41761409487947576,
+                "debris_density": 0.3763116726834297,
+                "hazard_gradient": 0.07378090046629225
+            },
+            "6_29": {
+                "structural_damage": 0.19584632456393758,
+                "signal_interference": 0.6037135019113863,
+                "movement_sightings": 0.4298491573545838,
+                "debris_density": 0.2708503087444185,
+                "hazard_gradient": 0.3628400189937822
+            },
+            "7_29": {
+                "structural_damage": 0.22708600693977948,
+                "signal_interference": 0.5951459506234039,
+                "movement_sightings": 0.3880079538170199,
+                "debris_density": 0.46693438217862665,
+                "hazard_gradient": 0.37098483579927616
+            },
+            "7_33": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.40713139058478826,
+                "movement_sightings": 0.4394692167754946,
+                "debris_density": 0.800332145272689,
+                "hazard_gradient": 0.06751494546703865
+            },
+            "7_19": {
+                "structural_damage": 0.17863381124130337,
+                "signal_interference": 0.3157861004240228,
+                "movement_sightings": 0.35095853758274587,
+                "debris_density": 0.31080124607705484,
+                "hazard_gradient": 0.008439624770653173
+            },
+            "7_21": {
+                "structural_damage": 0.7888364427315243,
+                "signal_interference": 0.39642900670320996,
+                "movement_sightings": 0.38459849998536366,
+                "debris_density": 0.731060209272151,
+                "hazard_gradient": 0.11411744097461321
+            },
+            "8_19": {
+                "structural_damage": 0.09295174314790752,
+                "signal_interference": 0.6278033661124394,
+                "movement_sightings": 0.5262926441710627,
+                "debris_density": 0.12344760332668978,
+                "hazard_gradient": 0.42631045932896405
+            },
+            "8_13": {
+                "structural_damage": 0.49961474923662386,
+                "signal_interference": 0.43410461841938397,
+                "movement_sightings": 0.20853952870918366,
+                "debris_density": 0.4991159266142378,
+                "hazard_gradient": 0.15415072818530615
+            },
+            "8_16": {
+                "structural_damage": 0.6140047428875218,
+                "signal_interference": 0.780291258223157,
+                "movement_sightings": 0.382142272866944,
+                "debris_density": 0.3946889336381512,
+                "hazard_gradient": 0.29666365930433247
+            },
+            "9_34": {
+                "structural_damage": 0.23015941683526386,
+                "signal_interference": 0.37177580053814346,
+                "movement_sightings": 0.5612133481385332,
+                "debris_density": 0.31085810002059566,
+                "hazard_gradient": 0.21648033621082197
+            },
+            "9_16": {
+                "structural_damage": 0.05963396005178176,
+                "signal_interference": 0.28332305996176044,
+                "movement_sightings": 0.49878505241583126,
+                "debris_density": 0.0,
+                "hazard_gradient": 0.13297781606860706
+            },
+            "9_36": {
+                "structural_damage": 0.6500957892931674,
+                "signal_interference": 0.5640624115686041,
+                "movement_sightings": 0.8547499514269454,
+                "debris_density": 0.4028411991364318,
+                "hazard_gradient": 0.24019543819700612
+            },
+            "9_13": {
+                "structural_damage": 0.04694707102819162,
+                "signal_interference": 0.5960707785309931,
+                "movement_sightings": 0.31209048061655253,
+                "debris_density": 0.19812933571199964,
+                "hazard_gradient": 0.42672579564027435
+            },
+            "9_30": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.39429157042066787,
+                "movement_sightings": 0.16007329548421337,
+                "debris_density": 0.9517209801975538,
+                "hazard_gradient": 0.2268025555866015
+            },
+            "9_38": {
+                "structural_damage": 0.1928319434960285,
+                "signal_interference": 0.23716083113254158,
+                "movement_sightings": 0.13064147642174886,
+                "debris_density": 0.3112880410984686,
+                "hazard_gradient": 0.10167378461757429
+            },
+            "10_24": {
+                "structural_damage": 0.6440010963012242,
+                "signal_interference": 0.30608913446958685,
+                "movement_sightings": 0.34117941085018466,
+                "debris_density": 0.4143614463067102,
+                "hazard_gradient": 0.34911644763434246
+            },
+            "10_18": {
+                "structural_damage": 0.3741346008511211,
+                "signal_interference": 0.015702207708007412,
+                "movement_sightings": 0.16487368771049263,
+                "debris_density": 0.5668934688177619,
+                "hazard_gradient": 0.31467916343310554
+            },
+            "11_26": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.25434054477192514,
+                "movement_sightings": 0.880012970319542,
+                "debris_density": 0.770605812187604,
+                "hazard_gradient": 0.06866817605126341
+            },
+            "11_12": {
+                "structural_damage": 0.9410000190473201,
+                "signal_interference": 0.26557552616631563,
+                "movement_sightings": 0.6716823801962986,
+                "debris_density": 0.8393982167908083,
+                "hazard_gradient": 0.0
+            },
+            "11_37": {
+                "structural_damage": 0.9671625031555499,
+                "signal_interference": 0.12363287104000789,
+                "movement_sightings": 0.7755570786904165,
+                "debris_density": 0.8758985993031017,
+                "hazard_gradient": 0.21666389165109745
+            },
+            "12_37": {
+                "structural_damage": 0.9404697500124047,
+                "signal_interference": 0.20735197580826828,
+                "movement_sightings": 0.7482931148275233,
+                "debris_density": 0.9266801834877512,
+                "hazard_gradient": 0.1184991062382571
+            },
+            "12_26": {
+                "structural_damage": 0.40444912739974836,
+                "signal_interference": 0.0,
+                "movement_sightings": 0.7582832238204269,
+                "debris_density": 0.45806788829493356,
+                "hazard_gradient": 0.0
+            },
+            "13_30": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.7450745294831412,
+                "movement_sightings": 0.34643113499620537,
+                "debris_density": 0.8739074231736261,
+                "hazard_gradient": 0.27091078889195497
+            },
+            "13_16": {
+                "structural_damage": 0.1343189478721575,
+                "signal_interference": 0.5376157387779599,
+                "movement_sightings": 0.6166362109384772,
+                "debris_density": 0.2921689097924174,
+                "hazard_gradient": 0.33387622673952866
+            },
+            "13_38": {
+                "structural_damage": 0.29074413065888105,
+                "signal_interference": 0.4822693765071435,
+                "movement_sightings": 0.2723976950056982,
+                "debris_density": 0.3923193937340535,
+                "hazard_gradient": 0.3744844447558956
+            },
+            "14_23": {
+                "structural_damage": 0.41442867525409316,
+                "signal_interference": 0.14599398088633542,
+                "movement_sightings": 0.7835934689021968,
+                "debris_density": 0.5763557051457908,
+                "hazard_gradient": 0.050290767487364954
+            },
+            "14_24": {
+                "structural_damage": 0.688110818804483,
+                "signal_interference": 0.21083420091041855,
+                "movement_sightings": 0.8766672800421927,
+                "debris_density": 0.2770967106647916,
+                "hazard_gradient": 0.24798899497552493
+            },
+            "14_28": {
+                "structural_damage": 0.6121478418463797,
+                "signal_interference": 0.16487879063949953,
+                "movement_sightings": 0.4916030039302918,
+                "debris_density": 0.3511058560620612,
+                "hazard_gradient": 0.07938397941038206
+            },
+            "15_35": {
+                "structural_damage": 0.925472754670368,
+                "signal_interference": 0.1255848237992755,
+                "movement_sightings": 0.5202484697620977,
+                "debris_density": 0.931208551658238,
+                "hazard_gradient": 0.0
+            },
+            "15_20": {
+                "structural_damage": 0.41836237859876013,
+                "signal_interference": 0.059603603563658375,
+                "movement_sightings": 0.08792205848364269,
+                "debris_density": 0.499369525095899,
+                "hazard_gradient": 0.0
+            },
+            "16_34": {
+                "structural_damage": 0.0,
+                "signal_interference": 0.34766600071501197,
+                "movement_sightings": 0.6343510023289066,
+                "debris_density": 0.07214896090418924,
+                "hazard_gradient": 0.3692288575853603
+            },
+            "17_18": {
+                "structural_damage": 0.7479455497849847,
+                "signal_interference": 0.11014833336173231,
+                "movement_sightings": 0.3384367799860871,
+                "debris_density": 0.4958388465537745,
+                "hazard_gradient": 0.0
+            },
+            "17_27": {
+                "structural_damage": 0.47315374474237604,
+                "signal_interference": 0.0,
+                "movement_sightings": 0.4552570009914637,
+                "debris_density": 0.4347980167222822,
+                "hazard_gradient": 0.13642274264420806
+            },
+            "17_22": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.12816618095881374,
+                "movement_sightings": 0.26595006629661905,
+                "debris_density": 0.7589161942050543,
+                "hazard_gradient": 0.13069647408047722
+            },
+            "18_27": {
+                "structural_damage": 0.30735488818385875,
+                "signal_interference": 0.0,
+                "movement_sightings": 0.5609047515964742,
+                "debris_density": 0.5147883907580857,
+                "hazard_gradient": 0.23460671998701624
+            },
+            "18_31": {
+                "structural_damage": 0.48991589003973934,
+                "signal_interference": 0.05413972317521379,
+                "movement_sightings": 0.1869460268210193,
+                "debris_density": 0.5549558858483321,
+                "hazard_gradient": 0.20459182585365687
+            },
+            "19_29": {
+                "structural_damage": 0.5577257748749781,
+                "signal_interference": 0.7758515442524998,
+                "movement_sightings": 0.5027301567338861,
+                "debris_density": 0.4352057097882076,
+                "hazard_gradient": 0.33409766788471756
+            },
+            "20_22": {
+                "structural_damage": 0.33304231699982423,
+                "signal_interference": 0.07851950668575552,
+                "movement_sightings": 0.3504980833717801,
+                "debris_density": 0.45774750765771466,
+                "hazard_gradient": 0.10109584866681695
+            },
+            "20_35": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.1192679269748833,
+                "movement_sightings": 0.08170373049687846,
+                "debris_density": 0.8977603846062858,
+                "hazard_gradient": 0.043317413122109405
+            },
+            "20_27": {
+                "structural_damage": 0.3135429718550558,
+                "signal_interference": 0.06206862391453813,
+                "movement_sightings": 0.15549822711729833,
+                "debris_density": 0.5736621589272365,
+                "hazard_gradient": 0.17148147421972637
+            },
+            "21_33": {
+                "structural_damage": 0.9907292463079055,
+                "signal_interference": 0.4228057441716566,
+                "movement_sightings": 0.3041131180482046,
+                "debris_density": 0.9254205663155879,
+                "hazard_gradient": 0.12370363101689406
+            },
+            "21_29": {
+                "structural_damage": 0.4190616340856495,
+                "signal_interference": 0.6025278558468785,
+                "movement_sightings": 0.4742247504757937,
+                "debris_density": 0.5597720135250527,
+                "hazard_gradient": 0.2709191471681528
+            },
+            "21_32": {
+                "structural_damage": 0.019872442326908768,
+                "signal_interference": 0.42453761318624333,
+                "movement_sightings": 0.3356398580320681,
+                "debris_density": 0.1330583881125304,
+                "hazard_gradient": 0.3631248106028062
+            },
+            "22_27": {
+                "structural_damage": 0.7641792630423002,
+                "signal_interference": 0.24858160733812806,
+                "movement_sightings": 0.6532261643894726,
+                "debris_density": 0.6617384800551666,
+                "hazard_gradient": 0.0
+            },
+            "22_31": {
+                "structural_damage": 0.9387866739280724,
+                "signal_interference": 0.2496823126913232,
+                "movement_sightings": 0.4459961335722634,
+                "debris_density": 0.8361712530948849,
+                "hazard_gradient": 0.03361953752372834
+            },
+            "22_35": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.20492982634614024,
+                "movement_sightings": 0.5856425924577313,
+                "debris_density": 0.7454462460116733,
+                "hazard_gradient": 0.24083999829261005
+            },
+            "23_24": {
+                "structural_damage": 0.3863580677468125,
+                "signal_interference": 0.0,
+                "movement_sightings": 0.866065048432887,
+                "debris_density": 0.4577303824710928,
+                "hazard_gradient": 0.19293919853681485
+            },
+            "23_36": {
+                "structural_damage": 0.41650822175801605,
+                "signal_interference": 0.22696249886681624,
+                "movement_sightings": 0.8027833409585474,
+                "debris_density": 0.589529962794863,
+                "hazard_gradient": 0.419165484602878
+            },
+            "24_36": {
+                "structural_damage": 0.6046630603050386,
+                "signal_interference": 0.5282378578452254,
+                "movement_sightings": 1.0,
+                "debris_density": 0.2995093905219285,
+                "hazard_gradient": 0.20103463159895976
+            },
+            "25_32": {
+                "structural_damage": 0.9058138077414332,
+                "signal_interference": 0.2512079587140034,
+                "movement_sightings": 0.6436650194450556,
+                "debris_density": 0.7834275669471871,
+                "hazard_gradient": 0.0
+            },
+            "25_33": {
+                "structural_damage": 0.0,
+                "signal_interference": 0.4106670489528944,
+                "movement_sightings": 0.009634321582084632,
+                "debris_density": 0.06806533037732501,
+                "hazard_gradient": 0.25719373873134477
+            },
+            "26_37": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.1915767374311305,
+                "movement_sightings": 0.9027482265228262,
+                "debris_density": 0.8509699610454371,
+                "hazard_gradient": 0.031779584814540074
+            },
+            "27_31": {
+                "structural_damage": 0.9195196849997931,
+                "signal_interference": 0.2918635415371532,
+                "movement_sightings": 0.5413946103938407,
+                "debris_density": 0.5894356967738372,
+                "hazard_gradient": 0.10564901263350235
+            },
+            "29_33": {
+                "structural_damage": 0.9153511262014233,
+                "signal_interference": 0.835386678218992,
+                "movement_sightings": 0.4986288646012521,
+                "debris_density": 1.0,
+                "hazard_gradient": 0.3834489140759358
+            },
+            "30_38": {
+                "structural_damage": 1.0,
+                "signal_interference": 0.36676636543247043,
+                "movement_sightings": 0.29940273267664363,
+                "debris_density": 0.8937308222032243,
+                "hazard_gradient": 0.0
+            },
+            "34_36": {
+                "structural_damage": 0.3966921786307713,
+                "signal_interference": 0.20616070726595828,
+                "movement_sightings": 0.7426619365082627,
+                "debris_density": 0.4787112956395372,
+                "hazard_gradient": 0.2275281066524036
+            }
+        }
+    }
+}

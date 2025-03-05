@@ -1,0 +1,827 @@
+{
+    "metadata": {
+        "policy_name": "EvacuationPolicy",
+        "experiment_id": "20250305_0916",
+        "timestamp": "2025-03-05T09:16:22.277884",
+        "config": {
+            "node_range": {
+                "min": 20,
+                "max": 50
+            },
+            "n_runs": 10,
+            "base_seed": 1234
+        },
+        "total_runs": 10
+    },
+    "overall_performance": {
+        "success_rate": 0.6,
+        "avg_time": 259.46855932604427,
+        "avg_path_length": 55.8883010290059,
+        "resources_allocated": 9.9,
+        "resources_used": 6.9,
+        "resource_efficiency": 0.6794444444444444,
+        "std_time": 212.49747013901091,
+        "std_path_length": 32.568133181738865,
+        "std_resources_allocated": 3.014962686336267,
+        "std_resources_used": 3.505709628591621
+    },
+    "resource_details": {
+        "explosives": {
+            "avg_allocated": 3.3,
+            "std_allocated": 1.004987562112089,
+            "avg_used": 1.9,
+            "std_used": 1.3000000000000003,
+            "efficiency": 0.5566666666666668
+        },
+        "ammo": {
+            "avg_allocated": 3.3,
+            "std_allocated": 1.004987562112089,
+            "avg_used": 1.9,
+            "std_used": 1.5779733838059502,
+            "efficiency": 0.5650000000000001
+        },
+        "radiation_suits": {
+            "avg_allocated": 3.3,
+            "std_allocated": 1.004987562112089,
+            "avg_used": 3.1,
+            "std_used": 1.2206555615733703,
+            "efficiency": 0.9166666666666666
+        }
+    },
+    "proxy_metrics": {
+        "nodes": {
+            "seismic_activity": {
+                "mean": 0.38225999773588004,
+                "std": 0.10569821474494832
+            },
+            "radiation_readings": {
+                "mean": 0.4169397572540022,
+                "std": 0.053107077944217894
+            },
+            "population_density": {
+                "mean": 0.20840297644641964,
+                "std": 0.07721935496805309
+            },
+            "emergency_calls": {
+                "mean": 0.7473940606205856,
+                "std": 0.07823742821583379
+            },
+            "thermal_readings": {
+                "mean": 0.38452147892561495,
+                "std": 0.07561708075285418
+            },
+            "signal_strength": {
+                "mean": 0.6129928292554574,
+                "std": 0.08040193724499943
+            },
+            "structural_integrity": {
+                "mean": 0.6222072605673977,
+                "std": 0.10884173551527809
+            }
+        },
+        "edges": {
+            "structural_damage": {
+                "mean": 0.4611699583415457,
+                "std": 0.09615878809030709
+            },
+            "signal_interference": {
+                "mean": 0.3460178609449788,
+                "std": 0.046193328631120426
+            },
+            "movement_sightings": {
+                "mean": 0.49820632170411694,
+                "std": 0.10619600163019755
+            },
+            "debris_density": {
+                "mean": 0.4630846124436127,
+                "std": 0.08956720911410505
+            },
+            "hazard_gradient": {
+                "mean": 0.21956633211311605,
+                "std": 0.022268355128116396
+            }
+        }
+    },
+    "by_city_size": {
+        "50": {
+            "n_runs": 1,
+            "success_rate": 0.0,
+            "avg_time": 773.0035624850093,
+            "avg_path_length": 127.07994199915959,
+            "resources_allocated": 9.0,
+            "resources_used": 9.0,
+            "resource_efficiency": 1.0,
+            "std_time": 0.0,
+            "std_path_length": 0.0,
+            "std_resources_allocated": 0.0,
+            "std_resources_used": 0.0,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 3.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                },
+                "ammo": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 3.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                },
+                "radiation_suits": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 3.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.4346335949883588,
+                        "std": 0.0
+                    },
+                    "radiation_readings": {
+                        "mean": 0.4032681057178957,
+                        "std": 0.0
+                    },
+                    "population_density": {
+                        "mean": 0.23555881654613386,
+                        "std": 0.0
+                    },
+                    "emergency_calls": {
+                        "mean": 0.7378275488363982,
+                        "std": 0.0
+                    },
+                    "thermal_readings": {
+                        "mean": 0.3751083257841013,
+                        "std": 0.0
+                    },
+                    "signal_strength": {
+                        "mean": 0.5966873577141348,
+                        "std": 0.0
+                    },
+                    "structural_integrity": {
+                        "mean": 0.5768155156604552,
+                        "std": 0.0
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.5041494144213117,
+                        "std": 0.0
+                    },
+                    "signal_interference": {
+                        "mean": 0.3680807169111382,
+                        "std": 0.0
+                    },
+                    "movement_sightings": {
+                        "mean": 0.5389082371391379,
+                        "std": 0.0
+                    },
+                    "debris_density": {
+                        "mean": 0.5077907227771731,
+                        "std": 0.0
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.23928830097351314,
+                        "std": 0.0
+                    }
+                }
+            }
+        },
+        "46": {
+            "n_runs": 1,
+            "success_rate": 1.0,
+            "avg_time": 254.1353801093911,
+            "avg_path_length": 45.124099787682184,
+            "resources_allocated": 15.0,
+            "resources_used": 9.0,
+            "resource_efficiency": 0.6,
+            "std_time": 0.0,
+            "std_path_length": 0.0,
+            "std_resources_allocated": 0.0,
+            "std_resources_used": 0.0,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 5.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 2.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.4
+                },
+                "ammo": {
+                    "avg_allocated": 5.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 2.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.4
+                },
+                "radiation_suits": {
+                    "avg_allocated": 5.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 5.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.3911316736709768,
+                        "std": 0.0
+                    },
+                    "radiation_readings": {
+                        "mean": 0.4282228901878698,
+                        "std": 0.0
+                    },
+                    "population_density": {
+                        "mean": 0.22867003480947,
+                        "std": 0.0
+                    },
+                    "emergency_calls": {
+                        "mean": 0.7547510459686062,
+                        "std": 0.0
+                    },
+                    "thermal_readings": {
+                        "mean": 0.4031036721957705,
+                        "std": 0.0
+                    },
+                    "signal_strength": {
+                        "mean": 0.5880841627646298,
+                        "std": 0.0
+                    },
+                    "structural_integrity": {
+                        "mean": 0.6218175599690865,
+                        "std": 0.0
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.45396821087540457,
+                        "std": 0.0
+                    },
+                    "signal_interference": {
+                        "mean": 0.3797508021088577,
+                        "std": 0.0
+                    },
+                    "movement_sightings": {
+                        "mean": 0.4740421238690082,
+                        "std": 0.0
+                    },
+                    "debris_density": {
+                        "mean": 0.4581978462199218,
+                        "std": 0.0
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.2301920944919853,
+                        "std": 0.0
+                    }
+                }
+            }
+        },
+        "42": {
+            "n_runs": 1,
+            "success_rate": 0.0,
+            "avg_time": 0.0,
+            "avg_path_length": 0.0,
+            "resources_allocated": 15.0,
+            "resources_used": 15.0,
+            "resource_efficiency": 1.0,
+            "std_time": 0.0,
+            "std_path_length": 0.0,
+            "std_resources_allocated": 0.0,
+            "std_resources_used": 0.0,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 5.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 5.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                },
+                "ammo": {
+                    "avg_allocated": 5.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 5.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                },
+                "radiation_suits": {
+                    "avg_allocated": 5.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 5.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.17243255820728484,
+                        "std": 0.0
+                    },
+                    "radiation_readings": {
+                        "mean": 0.36485166638555894,
+                        "std": 0.0
+                    },
+                    "population_density": {
+                        "mean": 0.12279458166774575,
+                        "std": 0.0
+                    },
+                    "emergency_calls": {
+                        "mean": 0.6056528624243251,
+                        "std": 0.0
+                    },
+                    "thermal_readings": {
+                        "mean": 0.3113086170311718,
+                        "std": 0.0
+                    },
+                    "signal_strength": {
+                        "mean": 0.7787090275305085,
+                        "std": 0.0
+                    },
+                    "structural_integrity": {
+                        "mean": 0.8406239635282472,
+                        "std": 0.0
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.2973085017618104,
+                        "std": 0.0
+                    },
+                    "signal_interference": {
+                        "mean": 0.27744317258076157,
+                        "std": 0.0
+                    },
+                    "movement_sightings": {
+                        "mean": 0.3829378872634956,
+                        "std": 0.0
+                    },
+                    "debris_density": {
+                        "mean": 0.30622804240853835,
+                        "std": 0.0
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.1906025857406514,
+                        "std": 0.0
+                    }
+                }
+            }
+        },
+        "20": {
+            "n_runs": 1,
+            "success_rate": 1.0,
+            "avg_time": 120.97006414540986,
+            "avg_path_length": 39.827058662062306,
+            "resources_allocated": 6.0,
+            "resources_used": 4.0,
+            "resource_efficiency": 0.6666666666666666,
+            "std_time": 0.0,
+            "std_path_length": 0.0,
+            "std_resources_allocated": 0.0,
+            "std_resources_used": 0.0,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 2.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 1.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.5
+                },
+                "ammo": {
+                    "avg_allocated": 2.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 1.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.5
+                },
+                "radiation_suits": {
+                    "avg_allocated": 2.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 2.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.3202737343184582,
+                        "std": 0.0
+                    },
+                    "radiation_readings": {
+                        "mean": 0.5010524774221594,
+                        "std": 0.0
+                    },
+                    "population_density": {
+                        "mean": 0.30781802673607495,
+                        "std": 0.0
+                    },
+                    "emergency_calls": {
+                        "mean": 0.8613426358132751,
+                        "std": 0.0
+                    },
+                    "thermal_readings": {
+                        "mean": 0.4775984905350417,
+                        "std": 0.0
+                    },
+                    "signal_strength": {
+                        "mean": 0.6090274439962191,
+                        "std": 0.0
+                    },
+                    "structural_integrity": {
+                        "mean": 0.6786025040889176,
+                        "std": 0.0
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.39463563944595315,
+                        "std": 0.0
+                    },
+                    "signal_interference": {
+                        "mean": 0.358286905829461,
+                        "std": 0.0
+                    },
+                    "movement_sightings": {
+                        "mean": 0.6132014178083506,
+                        "std": 0.0
+                    },
+                    "debris_density": {
+                        "mean": 0.4136318967866357,
+                        "std": 0.0
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.2502487097302066,
+                        "std": 0.0
+                    }
+                }
+            }
+        },
+        "25": {
+            "n_runs": 1,
+            "success_rate": 1.0,
+            "avg_time": 177.19355834487314,
+            "avg_path_length": 56.162306363809094,
+            "resources_allocated": 6.0,
+            "resources_used": 4.0,
+            "resource_efficiency": 0.6666666666666666,
+            "std_time": 0.0,
+            "std_path_length": 0.0,
+            "std_resources_allocated": 0.0,
+            "std_resources_used": 0.0,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 2.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 1.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.5
+                },
+                "ammo": {
+                    "avg_allocated": 2.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 2.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                },
+                "radiation_suits": {
+                    "avg_allocated": 2.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 1.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.5
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.47420642565761284,
+                        "std": 0.0
+                    },
+                    "radiation_readings": {
+                        "mean": 0.3591012410330211,
+                        "std": 0.0
+                    },
+                    "population_density": {
+                        "mean": 0.31550705639993987,
+                        "std": 0.0
+                    },
+                    "emergency_calls": {
+                        "mean": 0.7212404028774694,
+                        "std": 0.0
+                    },
+                    "thermal_readings": {
+                        "mean": 0.5179655133103261,
+                        "std": 0.0
+                    },
+                    "signal_strength": {
+                        "mean": 0.584744381033618,
+                        "std": 0.0
+                    },
+                    "structural_integrity": {
+                        "mean": 0.5322149585018774,
+                        "std": 0.0
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.5412372176226424,
+                        "std": 0.0
+                    },
+                    "signal_interference": {
+                        "mean": 0.289402777735373,
+                        "std": 0.0
+                    },
+                    "movement_sightings": {
+                        "mean": 0.5563332601571926,
+                        "std": 0.0
+                    },
+                    "debris_density": {
+                        "mean": 0.5243971899025961,
+                        "std": 0.0
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.2024993573308353,
+                        "std": 0.0
+                    }
+                }
+            }
+        },
+        "31": {
+            "n_runs": 2,
+            "success_rate": 1.0,
+            "avg_time": 158.50665897361003,
+            "avg_path_length": 48.06252527662966,
+            "resources_allocated": 9.0,
+            "resources_used": 4.0,
+            "resource_efficiency": 0.4444444444444444,
+            "std_time": 77.3815199025625,
+            "std_path_length": 16.69003499879865,
+            "std_resources_allocated": 0.0,
+            "std_resources_used": 1.0,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 1.0,
+                    "std_used": 1.0,
+                    "efficiency": 0.3333333333333333
+                },
+                "ammo": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 0.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.0
+                },
+                "radiation_suits": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 3.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.5188681138148834,
+                        "std": 0.05016843232340301
+                    },
+                    "radiation_readings": {
+                        "mean": 0.4280769083491047,
+                        "std": 0.024723643431316195
+                    },
+                    "population_density": {
+                        "mean": 0.1164494409461529,
+                        "std": 0.01784048886215526
+                    },
+                    "emergency_calls": {
+                        "mean": 0.7344514328156739,
+                        "std": 0.015136313428577797
+                    },
+                    "thermal_readings": {
+                        "mean": 0.31873801329304347,
+                        "std": 0.012041116471387947
+                    },
+                    "signal_strength": {
+                        "mean": 0.5129045792000398,
+                        "std": 0.04971474344780899
+                    },
+                    "structural_integrity": {
+                        "mean": 0.481186906775902,
+                        "std": 0.058754687802669514
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.5977086208678751,
+                        "std": 0.05095272848416654
+                    },
+                    "signal_interference": {
+                        "mean": 0.3871041246849308,
+                        "std": 0.03198362983068476
+                    },
+                    "movement_sightings": {
+                        "mean": 0.3655527216164841,
+                        "std": 0.10585877910193237
+                    },
+                    "debris_density": {
+                        "mean": 0.5887094496700775,
+                        "std": 0.05281896983233747
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.198337748940553,
+                        "std": 0.015135410185880839
+                    }
+                }
+            }
+        },
+        "43": {
+            "n_runs": 2,
+            "success_rate": 0.5,
+            "avg_time": 241.82172117090468,
+            "avg_path_length": 51.32025934153141,
+            "resources_allocated": 10.5,
+            "resources_used": 6.5,
+            "resource_efficiency": 0.5972222222222222,
+            "std_time": 94.22351982400923,
+            "std_path_length": 3.26085059653888,
+            "std_resources_allocated": 1.5,
+            "std_resources_used": 2.5,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 3.5,
+                    "std_allocated": 0.5,
+                    "avg_used": 1.5,
+                    "std_used": 0.5,
+                    "efficiency": 0.41666666666666663
+                },
+                "ammo": {
+                    "avg_allocated": 3.5,
+                    "std_allocated": 0.5,
+                    "avg_used": 1.5,
+                    "std_used": 1.5,
+                    "efficiency": 0.375
+                },
+                "radiation_suits": {
+                    "avg_allocated": 3.5,
+                    "std_allocated": 0.5,
+                    "avg_used": 3.5,
+                    "std_used": 0.5,
+                    "efficiency": 1.0
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.3119148372115383,
+                        "std": 0.007997779946544825
+                    },
+                    "radiation_readings": {
+                        "mean": 0.39717876182257195,
+                        "std": 0.07224502394201199
+                    },
+                    "population_density": {
+                        "mean": 0.20383133790182162,
+                        "std": 0.07614615519712875
+                    },
+                    "emergency_calls": {
+                        "mean": 0.720122856004672,
+                        "std": 0.05643903019704549
+                    },
+                    "thermal_readings": {
+                        "mean": 0.37124899185074334,
+                        "std": 0.08831330760307504
+                    },
+                    "signal_strength": {
+                        "mean": 0.6755894682035023,
+                        "std": 0.03441132773511657
+                    },
+                    "structural_integrity": {
+                        "mean": 0.6949417745792401,
+                        "std": 0.00881384289071152
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.3911546507325604,
+                        "std": 0.011258532277645866
+                    },
+                    "signal_interference": {
+                        "mean": 0.31940314686989046,
+                        "std": 0.04484585442169561
+                    },
+                    "movement_sightings": {
+                        "mean": 0.5373391953892658,
+                        "std": 0.060361387349481294
+                    },
+                    "debris_density": {
+                        "mean": 0.3921413624289027,
+                        "std": 0.009089797525662469
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.2173691800613013,
+                        "std": 0.000913260982446637
+                    }
+                }
+            }
+        },
+        "29": {
+            "n_runs": 1,
+            "success_rate": 0.0,
+            "avg_time": 468.72626788673006,
+            "avg_path_length": 91.92403424102369,
+            "resources_allocated": 9.0,
+            "resources_used": 7.0,
+            "resource_efficiency": 0.7777777777777778,
+            "std_time": 0.0,
+            "std_path_length": 0.0,
+            "std_resources_allocated": 0.0,
+            "std_resources_used": 0.0,
+            "resource_details": {
+                "explosives": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 2.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.6666666666666666
+                },
+                "ammo": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 3.0,
+                    "std_used": 0.0,
+                    "efficiency": 1.0
+                },
+                "radiation_suits": {
+                    "avg_allocated": 3.0,
+                    "std_allocated": 0.0,
+                    "avg_used": 2.0,
+                    "std_used": 0.0,
+                    "efficiency": 0.6666666666666666
+                }
+            },
+            "proxy_metrics": {
+                "nodes": {
+                    "seismic_activity": {
+                        "mean": 0.368356088463266,
+                        "std": 0.0
+                    },
+                    "radiation_readings": {
+                        "mean": 0.4623898514501628,
+                        "std": 0.0
+                    },
+                    "population_density": {
+                        "mean": 0.23311969060888324,
+                        "std": 0.0
+                    },
+                    "emergency_calls": {
+                        "mean": 0.8839775326450897,
+                        "std": 0.0
+                    },
+                    "thermal_readings": {
+                        "mean": 0.38015616011216385,
+                        "std": 0.0
+                    },
+                    "signal_strength": {
+                        "mean": 0.5956878247083787,
+                        "std": 0.0
+                    },
+                    "structural_integrity": {
+                        "mean": 0.61974074121511,
+                        "std": 0.0
+                    }
+                },
+                "edges": {
+                    "structural_damage": {
+                        "mean": 0.4426740560874632,
+                        "std": 0.0
+                    },
+                    "signal_interference": {
+                        "mean": 0.3741996911745539,
+                        "std": 0.0
+                    },
+                    "movement_sightings": {
+                        "mean": 0.6108564567924841,
+                        "std": 0.0
+                    },
+                    "debris_density": {
+                        "mean": 0.4588988021433017,
+                        "std": 0.0
+                    },
+                    "hazard_gradient": {
+                        "mean": 0.2514184148602602,
+                        "std": 0.0
+                    }
+                }
+            }
+        }
+    }
+}

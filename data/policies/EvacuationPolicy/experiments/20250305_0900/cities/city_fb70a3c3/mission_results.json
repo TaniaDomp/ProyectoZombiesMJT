@@ -1,0 +1,75 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-05T09:00:41.822507",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            16,
+            8,
+            7
+        ],
+        "resources_allocated": {
+            "explosives": 0,
+            "ammo": 0,
+            "radiation_suits": 0
+        }
+    },
+    "outcome": {
+        "success": false,
+        "time_taken": 58.44465616153416,
+        "path_length": 36.77235336714058,
+        "resources": {
+            "initial": {
+                "explosives": 0,
+                "ammo": 0,
+                "radiation_suits": 0
+            },
+            "remaining": {
+                "explosives": 0,
+                "ammo": 0,
+                "radiation_suits": 0
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 16"
+            ],
+            [
+                1,
+                "Arrived at node 16"
+            ],
+            [
+                1,
+                "High radiation detected (level: 0.35)"
+            ],
+            [
+                1,
+                "TEAM DIED - Ran out of radiation suits"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "ammo": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 0,
+                "effective_uses": 0
+            },
+            "radiation_suits": {
+                "allocated": 0,
+                "used": 0,
+                "needed": 1,
+                "effective_uses": 0
+            }
+        }
+    }
+}

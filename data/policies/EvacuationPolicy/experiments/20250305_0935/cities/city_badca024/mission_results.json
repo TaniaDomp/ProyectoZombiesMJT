@@ -1,0 +1,112 @@
+{
+    "metadata": {
+        "timestamp": "2025-03-05T09:35:40.312357",
+        "solution_class": "EvacuationPolicy"
+    },
+    "plan": {
+        "path": [
+            11,
+            48,
+            27,
+            49,
+            9,
+            22,
+            42,
+            31
+        ],
+        "resources_allocated": {
+            "explosives": 3,
+            "ammo": 3,
+            "radiation_suits": 1
+        }
+    },
+    "outcome": {
+        "success": false,
+        "time_taken": 230.29599808806046,
+        "path_length": 73.9546598511748,
+        "resources": {
+            "initial": {
+                "explosives": 3,
+                "ammo": 3,
+                "radiation_suits": 1
+            },
+            "remaining": {
+                "explosives": 2,
+                "ammo": 2,
+                "radiation_suits": 0
+            }
+        }
+    },
+    "events": {
+        "chronological": [
+            [
+                0,
+                "Mission started at node 11"
+            ],
+            [
+                1,
+                "Arrived at node 11"
+            ],
+            [
+                1,
+                "High radiation detected (level: 0.65)"
+            ],
+            [
+                1,
+                "Used radiation suit successfully"
+            ],
+            [
+                1,
+                "Zombie horde encountered (level: 0.55)"
+            ],
+            [
+                1,
+                "Used ammo successfully against zombies"
+            ],
+            [
+                1,
+                "Path blocked to node 27 (blockage detected)"
+            ],
+            [
+                1,
+                "Used explosives successfully to clear path"
+            ],
+            [
+                1,
+                "Moving to node 27"
+            ],
+            [
+                2,
+                "Arrived at node 48"
+            ],
+            [
+                2,
+                "High radiation detected (level: 0.35)"
+            ],
+            [
+                2,
+                "TEAM DIED - Ran out of radiation suits"
+            ]
+        ],
+        "resource_summary": {
+            "explosives": {
+                "allocated": 3,
+                "used": 1,
+                "needed": 1,
+                "effective_uses": 1
+            },
+            "ammo": {
+                "allocated": 3,
+                "used": 1,
+                "needed": 1,
+                "effective_uses": 1
+            },
+            "radiation_suits": {
+                "allocated": 1,
+                "used": 1,
+                "needed": 2,
+                "effective_uses": 1
+            }
+        }
+    }
+}

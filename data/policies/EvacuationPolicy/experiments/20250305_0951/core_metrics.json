@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "experiment_id": "20250305_0951",
+        "timestamp": "2025-03-05T09:51:23.549181",
+        "configuration": {
+            "node_range": {
+                "min": 20,
+                "max": 50
+            },
+            "n_runs": 100,
+            "base_seed": 1307
+        },
+        "total_runs": 1
+    },
+    "overall_performance": {
+        "success_rate": 0.0,
+        "avg_path_length": 13.918811196545777,
+        "avg_time": 28.475338754397
+    },
+    "resource_usage": {
+        "avg_allocated": 3.0,
+        "avg_used": 1.0,
+        "avg_needed": 2.0,
+        "efficiency": 1.0
+    }
+}
