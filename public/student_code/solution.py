@@ -251,35 +251,78 @@ class EvacuationPolicy:
     
     def _policy_4(self, city: CityGraph, proxy_data: ProxyData, max_resources: int) -> PolicyResult:
         """
-        Política 4: Estrategia personalizada.
-        Implementa tu mejor estrategia usando cualquier recurso disponible.
-        
-        Esta política puede:
-        - Usar cualquier técnica o recurso que consideres apropiado
-        - Implementar estrategias avanzadas de tu elección
+        Política 4: Estrategia avanzada y optimizada.
+        - Usa distancia, seguridad y datos históricos para elegir el mejor punto de extracción.
+        - Utiliza el algoritmo A* para encontrar la ruta óptima.
+        - Asigna recursos de manera eficiente en función del riesgo real.
         """
-        # TODO: Implementa tu solución aquí
-        proxy_data_nodes_df = convert_node_data_to_df(proxy_data.node_data)
-        proxy_data_edges_df = convert_edge_data_to_df(proxy_data.edge_data)
-        
-        #print(f'\n Node Data: \n {proxy_data_nodes_df}')
-        #print(f'\n Edge Data: \n {proxy_data_edges_df}')
-        
-        target = city.extraction_nodes[0]
-        
-        try:
-            path = nx.shortest_path(city.graph, city.starting_node, target, 
-                                  weight='weight')
-        except nx.NetworkXNoPath:
-            path = [city.starting_node]
+
+        # 1 Selección Inteligente del Punto de Extracción
+        def evaluate_extraction_node(node):
+            """Evalúa la seguridad del nodo de extracción en función de múltiples indicadores."""
+            node_data = proxy_data.node_data.get(node, {})
+            historical_success = node_data.get('past_success_rate', 0.5)  # Si no hay datos, asumimos 50% éxito.
             
-        resources = {
-            'explosives': max_resources // 3,
-            'ammo': max_resources // 3,
-            'radiation_suits': max_resources // 3
-        }
-        
+            # Factores de riesgo (menor es mejor)
+            safety_score = (
+                node_data.get('radiation_readings', 0) +  # Nivel de radiación
+                node_data.get('seismic_activity', 0) +  # Actividad sísmica
+                (1 - node_data.get('structural_integrity', 1)) +  # Integridad estructural
+                node_data.get('population_density', 0)  # Población (más gente = más riesgo)
+            ) 
+            
+            # Ponderamos con el éxito histórico
+            return safety_score / (historical_success + 0.01)  # Evitamos división por 0
+
+        # 🔹 Escogemos el punto de extracción con menor riesgo y mayor éxito pasado
+        best_extraction = min(city.extraction_nodes, key=evaluate_extraction_node)
+
+        # 2 Encontrar la Ruta Más Segura con A*
+        def edge_risk(edge):
+            """Evalúa el riesgo de cada camino en función de los datos del proxy."""
+            edge_data = proxy_data.edge_data.get(edge, {})
+            return (
+                edge_data.get('structural_damage', 0) + 
+                edge_data.get('debris_density', 0) +
+                edge_data.get('movement_sightings', 0) +
+                edge_data.get('signal_interference', 0)
+            )  # 🔥 Cuanto más alto, más peligroso
+
+        try:
+            # Usamos A* para encontrar la mejor ruta optimizada (distancia + seguridad)
+            path = nx.astar_path(
+                city.graph, city.starting_node, best_extraction, 
+                weight=lambda u, v, d: d.get('weight', 1) + edge_risk((u, v))
+            )
+        except nx.NetworkXNoPath:
+            path = [city.starting_node]  # No hay ruta posible, quedarse en el lugar.
+
+        # 3 Asignación Inteligente de Recursos
+        def allocate_resources():
+            """Asigna los recursos óptimamente basándose en los riesgos de la ruta."""
+            total_risk = sum(edge_risk((path[i], path[i+1])) for i in range(len(path)-1))
+            if total_risk == 0:
+                return {'explosives': 0, 'ammo': 0, 'radiation_suits': 0}  # Si no hay peligro, no gastamos recursos.
+
+            # Calculamos el porcentaje de riesgo para cada tipo de recurso
+            explosive_need = sum(proxy_data.edge_data.get((path[i], path[i+1]), {}).get('structural_damage', 0) for i in range(len(path) - 1))
+            radiation_need = max(proxy_data.node_data.get(node, {}).get('radiation_readings', 0) for node in path)
+            movement_risk = sum(proxy_data.edge_data.get((path[i], path[i+1]), {}).get('movement_sightings', 0) for i in range(len(path) - 1))
+
+            # Distribuimos los recursos en función del riesgo relativo
+            total_factor = explosive_need + radiation_need + movement_risk + 0.01  # Evitamos división por 0
+            resources = {
+                'explosives': min(int((explosive_need / total_factor) * max_resources), max_resources // 3),
+                'ammo': min(int((movement_risk / total_factor) * max_resources), max_resources // 3),
+                'radiation_suits': min(int((radiation_need / total_factor) * max_resources), max_resources // 3)
+            }
+
+            return resources
+
+        resources = allocate_resources()
+
         return PolicyResult(path, resources)
+
     
     
     

@@ -6,7 +6,7 @@ CONFIG = {
             'min': 20,
             'max': 50
         },
-        'n_runs': 100,  # Total number of cities to simulate
+        'n_runs': 10,  # Total number of cities to simulate
         'base_seed': 7354681  # For reproducibility
     }
 
@@ -40,6 +40,7 @@ def main():
     
     # Create policy
     policy = EvacuationPolicy()
+    policy.set_policy("policy_1")
     
     # Run batch of simulations
     results, experiment_id = runner.run_batch(policy, config)
